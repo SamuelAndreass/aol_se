@@ -1,0 +1,244 @@
+:root{
+    --primary: #2BD232;
+    --bg: #ece8e1
+    ;
+}
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-bottom: 1px solid rgb(216, 211, 211); /* Tambahkan ini */
+    padding: 1rem;
+    margin-right: 20px;
+  }
+  
+  .logo {
+    width: 100px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    margin-left: 45.2rem;
+  }
+  
+  nav ul li {
+    margin-left: 1rem;
+  }
+  
+  nav ul li:last-child {
+    margin-right: 1rem;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    
+    border-bottom: 2px solid transparent; /* Tambahkan ini */
+  }
+  nav ul li a:hover{
+    text-decoration: none;
+    border-bottom: 5px solid var(--primary); /* Tambahkan ini */
+    padding-bottom: 1.6rem;
+    color: #333;
+  }
+  .cta {
+    display: flex;
+    margin-left: 0px;
+  }
+  
+
+  .cta .secondary-button {
+    background-color: transparent;
+    color: #4CAF50;
+    padding: 0.5rem 1rem;
+    border: 1px solid #4CAF50;
+    border-radius: 0.25rem;
+  }
+  .menu-cta-group {
+    display: flex;
+    align-items: center;
+  }
+  
+ 
+ 
+  
+  footer {
+    background-color: #f2f2f2;
+    padding: 1rem;
+    text-align: center;
+
+  }
+
+.navbar .navbar-extra a{
+    color: #fff;
+    font-size: 24px; /* Increase the font size */
+  width: 40px; /* Adjust the width */
+  height: 40px; /* Adjust the height */
+    margin: 0 0.5rem;
+
+}
+/* Tambahkan ini */
+
+.navbar .navbar-extra a:hover{
+    color: var(--primary);
+}
+
+
+
+/* Tambahkan ini */
+#navbar {
+    display: flex;
+  }
+.hamburger {
+    display: none;
+}
+/* Tambahkan ini */
+.cta-hamburger-group {
+    display: flex;
+    align-items: center;
+  }
+  
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}  
+
+@media screen and (max-width: 1190px) {
+    #navbar {
+      display: none;
+    }
+  
+    .hamburger{
+      display: block;
+    }
+    .secondary-button{
+        display: none;
+    }
+  }
+
+  @media screen and (max-width: 990px) {
+    #navbar {
+      display: none;
+    }
+  
+    .hamburger{
+      display: block;
+    }
+    .secondary-button{
+        display: none;
+    }
+  }
+  
+
+/* tablet */
+@media (max-width: 768px){
+    html{
+
+        font-size: 76.5%;
+    }
+
+
+    #hamburger-box{
+        display: block;
+    }
+
+    .navbar .navbar-nav{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: rgb(255, 255, 255);
+        width: 30rem;
+        height: 100vh;
+        transition: 0.3s;
+    }
+    .navbar .navbar-nav.active{
+        right: 0;
+    }
+
+    .navbar .navbar-nav a{
+        color: var(--bg);
+        display: block;
+        margin: 1.5rem;
+        padding: 0.5px;
+        font-size: 2rem;
+    }
+
+    .navbar .navbar-nav a::after {
+        transform-origin: 0 0;
+    }
+
+    .navbar .navbar-nav a:hover::after {
+        transform: scaleX(0.25);
+    }
+
+
+}
+
+
+/* hp */
+@media (max-width: 450px){
+    html {
+        font-size: 45%;
+    }
+    .secondary-button{
+        display: none;
+    }
+    .countdown-item .number{
+        padding-top: -5px;
+        font-size: 8px;
+        padding-left: 3px;
+   }
+    .countdown-item{
+        padding-right: 1px;
+        padding-left: 1px;
+    }
+    .countdown-label{
+        font-size: 6px;
+        margin-left: 7px;
+        margin-right: 6px;
+    }
+    .image-paragraph{
+      width: 30px;
+      height: 350px;
+    }
+    #search{
+      font-size: 300%;
+    }
+    .bnn {
+     margin-left: 70px; 
+    }
+    .info .paragraph-container{
+      font-size: 10px;
+    }
+    .text1 p{
+      font-size: 11.3px;
+    }
+}
+
+
+
+
