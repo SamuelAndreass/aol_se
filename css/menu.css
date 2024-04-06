@@ -71,7 +71,8 @@ body {
     color: #4CAF50;
     padding: 0.5rem 1rem;
     border: 1px solid #4CAF50;
-    border-radius: 0.25rem;
+    border-radius: 4px;
+
   }
   .menu-cta-group {
     display: flex;
@@ -80,6 +81,7 @@ body {
   
   /* CSS */
 .modal {
+  
   display: none; /* Modal awalnya tersembunyi */
   position: fixed; /* Tetap berada di tempat saat di-scroll */
   z-index: 1; /* Berada di atas semua konten lain */
@@ -96,34 +98,51 @@ body {
   margin-bottom: 20px;
 }
 .modal-content {
+  border-radius: 0.25rem;
   background-color: #fefefe;
   margin: 15% auto; /* 15% dari atas dan ditengah */
   padding: 20px;
   border: 1px solid #888;
-  width: 20%; /* Lebar modal */
+  width: 25%; /* Lebar modal */
 }
-
+#login-btn-container{
+  margin:auto;
+  display: flex;
+  justify-content: center;
+}
 #button-login{
+  display: block;
   background-color: transparent;
     color: #4CAF50;
     padding: 0.5rem 1rem;
+    padding-left: 10px;
+    width: 100%;
+    padding-right: 10px;
     border: 1px solid #4CAF50;
     border-radius: 0.25rem;
+    margin: auto;
+    text-align: center;
 }
 
+.login-w{
+  text-align: center;
+}
 
+.register-e{
+  color: var(--primary);
+}
 
 #phone{
-  
+  width: 100%;
   margin-top: 20px;
   border-bottom: 1px solid black;
   margin-bottom: 20px;
   margin-left: auto;
-  margin-right: auto;
+  margin-right:auto;
 } 
 
 #pwd{
- 
+  width: 100%;
   margin-top: 20px;
   border-bottom: 1px solid black;
   margin-bottom: 20px;
