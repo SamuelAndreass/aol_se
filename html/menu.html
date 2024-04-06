@@ -24,7 +24,7 @@
 <body>
     <header>
         <div class="logo">
-          <a href="menu.html"><img src="../asset/kostify.png" alt="Logo"></a>
+          <a href="menu.html"><img src="" alt="Logo"></a>
         </div>
         <div class="menu-cta-group"> <!-- Tambahkan kontainer ini -->
           <nav id="navbar">
@@ -35,7 +35,7 @@
           </nav>
           <div class="cta-hamburger-group"> <!-- Tambahkan kontainer ini -->
             <div class="cta">
-              <a href="#" class="secondary-button">Sign Up</a>
+              <a href="#" class="secondary-button" id="sign-btn">Sign Up</a>
             </div>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -45,10 +45,30 @@
           </div> <!-- Tutup kontainer yang ditambahkan -->
         </div> <!-- Tutup kontainer yang ditambahkan -->
       </header>
+
+      <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p id="title-modal-login">Masuk ke 
+            <h1 class="nama">KOSTIFY</h1></p>
+       
+          <form>
+            <label for="phone" id="telpon">Nomor Handphone:</label><br>
+            <input type="text" id="phone" name="phone"><br>
+            <label for="pwd" id="password">Password:</label><br>
+            <input type="password" id="pwd" name="pwd"><br>
+            <button type="button" id="button-login">Login</button>
+          </form>
       
+        </div>
       
-    
- <script src="../js/menu.js" defer></script>  
+      </div>
+ 
+      <script src="../js/menu.js"></script>
+
+      
 </body>
 
 
