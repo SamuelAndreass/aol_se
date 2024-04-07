@@ -13,7 +13,7 @@ if ($conn->connect_error) {
         $password = isset($_POST['password']) ? $_POST['password'] : '';
 
         $stmt = $conn->prepare("INSERT INTO user(userName, userPhone, userEmail, userPassword) VALUES(?,?,?,?)");
-        $stmt->bind_param("ssss", $nama2, $phonenum2, $password); 
+        $stmt->bind_param("ssss", $nama2, $phonenum2, $userEmail, $password); 
         $stmt->execute();
         echo "register succesfully";
         $stmt->close();
