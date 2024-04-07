@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+<link rel="stylesheet" type="text/css"href="../css/login.css">
+<!-- box icons -->
+<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="dist/hamburgers.css" rel="stylesheet">
+<!-- remxicons -->
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+<script src="https://unpkg.com/feather-icons"></script>
+<!-- google font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+
+  <!-- template header -->
+  <header>
+    <div class="logo">
+      <a href="menu.html"><img src="" alt="Logo"></a>
+    </div>
+    <div class="menu-cta-group"> <!-- Tambahkan kontainer ini -->
+      <nav id="navbar">
+        <ul>
+          <li><a href="#">Cari apa?</a></li>
+          <li><a href="#">Pusat Bantuan</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  
+  <!-- template header -->
+  
+ <div class="regis-wrapper" style= "background-image: url(../asset/bg-registration-tenant.svg);";>
+  <div class="form-login">
+    <h1 class="login-title">Daftar Akun</h1>
+    <form action="../php/register.php" method="POST">
+      <label for="name">Nama lengkap</label><br>
+      <input type="text" name="nama2" placeholder="Masukkan nama lengkap anda"><br>
+      <label for="phone">Nomor telpon</label><br>
+      <input type="text"  name="phonenum2" placeholder="Masukkan nomor handphone aktif"><br>
+      <label for="email">Email</label><br>
+      <input type="email"  name="mail" placeholder="Masukkan email untuk kostify"><br>
+      <label for="password">Password</label><br>
+      <input type="password"  name="password" placeholder="Minimal 8 karakter"><br>
+      <label for="r-password">Ulangi password</label><br>
+      <input type="password" name="r-password" placeholder="Minimal 8 karakter"><br>
+
+      <div class="button-container">
+        <input type="submit"id="button-login">Daftar</br>
+      </div>
+      
+    </form>
+  </div>
+ </div>
+      
+ 
+
+</body>
+</html>

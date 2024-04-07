@@ -1,0 +1,129 @@
+:root{
+    --primary: #2BD232;
+    --bg: #ece8e1
+    ;
+}
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+
+}
+
+
+
+body {
+    font-family: Arial, Helvetica;
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-bottom: 1px solid rgb(216, 211, 211); /* Tambahkan ini */
+    padding: 1rem;
+    margin-right: 0px;
+    margin-bottom: 10px;
+  }
+  
+.logo {
+    width: 100px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    margin-left: 45.2rem;
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
+  
+  nav ul li {
+    margin-left: 1rem;
+  }
+  
+  nav ul li:last-child {
+    margin-right: 1rem;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    border-bottom: 2px solid transparent; /* Tambahkan ini */
+  }
+  nav ul li a:hover{
+    text-decoration: none;
+    border-bottom: 5px solid var(--primary); /* Tambahkan ini */
+    padding-bottom: 1.6rem;
+    color: #333;
+  }
+  .cta {
+    display: flex;
+    margin-left: 90px;
+  }
+  
+
+  .menu-cta-group {
+    display: flex;
+    align-items: center;
+  }
+
+  .regis-wrapper {
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    min-height: calc(100vh - 80px);
+    padding: 48px 0;
+}
+
+.login-title{
+    
+    font-weight: 10rem;
+    margin-bottom: 20px;
+}
+
+.form-login{
+    
+    margin-left: 8rem;
+    padding: 1px;
+    width: 250px;
+    /* border: 2px solid black; */
+}
+
+label[for="name"]{
+  margin-bottom: 30rem;
+  margin-top: 20px; /* adjust as needed */
+  
+}
+
+
+input[type=text], input[type=email], input[type=password] {
+   margin-bottom: 20px;
+    width: 100%; /* atau ukuran spesifik lainnya */
+    border-radius: 0.25rem;
+    padding: 4px;
+    border: 1px solid black;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+#button-login{
+    padding: 10px;
+    border: 1px solid black;
+    justify-content: center;
+    width: 100%;
+    background-color: transparent;
+    border-radius: 0.25rem;
+}
+
+.button-container{
+  margin-top: 30px;
+}
