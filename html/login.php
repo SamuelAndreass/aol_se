@@ -79,15 +79,15 @@ include("config.php");
         <div class="label-cover1">
           <label for="name">Nama Lengkap</label><br>
         </div>
-            <input type="text" name="nama2" placeholder="Masukkan nama lengkap anda"><br>
-     
+            <input type="text" name="nama2" id="name2" placeholder="Masukkan nama lengkap anda"><br>
+            <div id="n-message"></div>
       </div>
       <div class="input-n">
         <div class="label-cover">
         <label for="phone">Nomor Handphone</label><br>
         </div>
             <input type="tel"  name="phonenum2" id="phone" placeholder="Masukkan nomor handphone aktif" required><br>
-            <div id="p-response"></div>
+            <span id="p-response"></span>
             
       </div>
       <div class="input-n">
@@ -107,13 +107,14 @@ include("config.php");
       </div>     
       <div class="input-n">
         <div class="label-cover">
-          <label for="r-password">Ulangi password</label><br>
+          <label for="r-password2">Ulangi password</label><br>
         </div>
             <input type="password" name="r-password" id="r-password" placeholder="Minimal 8 karakter"><br>
             <span id="r-message"></span>
       </div>
       <div class="button-container">
-        <input type="submit"name="submit" value="Daftar" id="button-login" class="submit-button"></button>
+        <button type="submit"name="submit"  id="button-login" class="submit-button" disabled="disabled">Daftar
+        </button>
       </div>
       
     </form>

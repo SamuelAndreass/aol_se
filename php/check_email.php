@@ -22,7 +22,7 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
   // Check if the email exists
   if (mysqli_num_rows($result) > 0) {
     // If the email exists, send a response
-    echo "Email sudah digunakan untuk akun lain";
+    echo "Email already exists";
   }
 }
 

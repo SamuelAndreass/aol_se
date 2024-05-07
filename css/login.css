@@ -119,7 +119,7 @@ label[for="r-password"],label[for="phone"] , label[for="email"], label[for="pass
 
 
 
-#r-message, #message, #e-response, #p-response{
+#n-message, #r-message, #message, #e-response, #p-response{
   color: red;
   font-size: 10px;
   padding-top: 0.5rem;
@@ -162,12 +162,15 @@ input[type=email], input[type=tel]{
 
 #button-login{
     padding: 10px;
-    border: 1px solid black;
+    background-color: #dcdcdc;
+    color: rgb(164, 164, 164);
+    
     justify-content: center;
     width: 100%;
-    background-color: transparent;
     border-radius: 0.25rem;
 }
+
+
 
 .button-container{
   margin-top: 30px;
@@ -189,3 +192,4 @@ input[type=email], input[type=tel]{
   height: auto;
   width: auto;
 }
+
