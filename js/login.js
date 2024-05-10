@@ -167,8 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
       isNamaValid = false;
     }
   });
-
-  
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -196,6 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
       nmessage.innerHTML = 'Password harus berisi min. 8 karakter, kombinasi angka (0-9) dan huruf alfabet (A-Z)'; // Tampilkan pesan kesalahan
       isPasswordValid = false;
     }
+
   });
   
 });
@@ -210,35 +209,33 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Event listener for when the user types in the input
-  validateElement.addEventListener('input', function(event) {
+  validateElement.addEventListener('input', function(event) { // Change 'input' to 'keyup'
     var isValid = validateInput(event.target.value); // Corrected event reference
     if (isValid) {
       event.target.style.borderColor = 'green'; // Change to green if the condition is met
       nmessage.innerHTML = ''; // Clear error message
        // Event listener for when the input loses focus
-  validateElement.addEventListener('blur', function(event) {
-    event.target.style.borderColor = ''; // Reset to default border color when moving away from the input
-  });
+      validateElement.addEventListener('blur', function(event) {
+        event.target.style.borderColor = ''; // Reset to default border color when moving away from the input
+      });
       isPasswordMatch = true
     } else {
       event.target.style.borderColor = 'red'; // Change to red if the condition is not met
       nmessage.innerHTML = 'Password harus sama dengan password baru'; // Display error message
       isPasswordMatch = false;
+      
     }
   });
-
- 
 });
 
-// Daftar semua elemen input
-var inputElements = document.querySelectorAll('input');
+
+
 
 
 var button = document.getElementById('button-login'); 
 // Daftar semua elemen input
 var inputs = document.querySelectorAll('input');
 
-// Fungsi untuk memeriksa apakah semua field telah diisi
 // Fungsi untuk memeriksa apakah semua field telah diisi
 function checkFields() {
   var empty = false;
@@ -258,12 +255,15 @@ function toggleButton() {
       button.style.color = 'white';
   } else {
       button.setAttribute('disabled', 'disabled');
+      button.style.backgroundColor= '#dcdcdc';
+      button.style.color = rgb(164, 164, 164);
   }
 }
 
+
 // Event listener untuk setiap perubahan pada field input
 inputs.forEach(function(input) {
-  input.addEventListener('input', function() {
+  input.addEventListener('keyup', function() {
       toggleButton();
   });
 });

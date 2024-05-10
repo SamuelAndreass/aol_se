@@ -59,16 +59,9 @@ include("config.php");
         die('Error: ' . mysqli_error($con));
       }
 
-      if (mysqli_num_rows($verif_query) != 0) {
-        echo "<div class='message'> 
-                <p> email already in use <p>
-                <div><br>";
-        echo "<a href = javascript:self.history.back()'><button class='btn'> Go back</button>";
-      } else {
+      else {
         mysqli_query($con,"INSERT INTO users(namaUser, nomorTelpon, emailUser, userPassword) VALUES('$nama2', '$phonenum2', '$mail', '$password')");
-        echo "<div class='message'> 
-                <p> Registration success <p>
-                <div><br>";
+        echo "<script>alert('Akun berhasil dibuat')</script>";
         echo "<a href = <a hre  f='index.php'> <button class='btn'>login now </button>";
       }
     } else{
@@ -113,8 +106,9 @@ include("config.php");
             <span id="r-message"></span>
       </div>
       <div class="button-container">
-        <button type="submit"name="submit"  id="button-login" class="submit-button" disabled="disabled">Daftar
-        </button>
+        <button type="submit"name="submit" id="button-login" class="submit-button" disabled="disabled">Daftar
+        
+      </button>
       </div>
       
     </form>
