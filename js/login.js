@@ -177,65 +177,43 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+
 document.addEventListener('DOMContentLoaded', function() {
-  var inputElement = document.getElementById('name2');
-  var nmessage = document.getElementById('n-message');
-
+  var nmessage = document.getElementById('message2');
+  var validateElement = document.getElementById('password');
   function validateInput(value) {
-    var isAlphabetical = /^[a-zA-Z\s]+$/.test(value);
-    return value.length === 0 || isAlphabetical;
+    var output = /^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/.test(value); 
+    return output;
   }
-
-  inputElement.addEventListener('input', function(event) {
+  
+  validateElement.addEventListener('input', function(event) {
     if (validateInput(event.target.value)) {
       event.target.style.borderColor = 'green';
       nmessage.innerHTML = '';
-      isNamaValid = true;
-    } else {
-      event.target.style.borderColor = 'red';
-      nmessage.innerHTML = 'Harus karakter alphabet';
-      isNamaValid = false;
-    }
-  });
-
-  inputElement.addEventListener('blur', function(event) {
-    if (!validateInput(event.target.value)) {
-      event.target.style.borderColor = 'red';
-    } else {
-      event.target.style.borderColor = 'black';
-    }
-  });
-});
-
-var isPas = false;
-document.addEventListener('DOMContentLoaded', function() {
-  var inputElement = document.getElementById('password');
-  var nmessage = document.getElementById('message');
-
-  function validateInput(value) {
-    var input = /^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/.test(value);
-    return input;
-  }
-
-  inputElement.addEventListener('input', function(event) {
-    if (validateInput(event.target.value)) {
-      event.target.style.borderColor = 'green';
-      nmessage.innerHTML = '';
+      isPasswordValid = true;
     } else {
       event.target.style.borderColor = 'red';
       nmessage.innerHTML = 'Password harus berisi min. 8 karakter, kombinasi angka (0-9) dan huruf alfabet (A-Z)';
+      isPasswordValid = false;
     }
   });
 
-  // remove the blur event listener
-  // inputElement.addEventListener('blur', function(event) {
-  //   if (!validateInput(event.target.value)) {
-  //     event.target.style.borderColor = 'red';
-  //   } else {
-  //     event.target.style.borderColor = 'black';
-  //   }
-  // });
+
+  
+
+
+validateElement.addEventListener('blue', function(event) { // Ganti 'inputElement' dengan 'validateElement'
+  if (!validateInput(event.target.value)) {
+    event.target.style.borderColor = 'red';
+  } else {
+    event.target.style.borderColor = 'black';
+  }
+}, true);
 });
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
   var validateElement = document.getElementById('r-password');
   var nmessage = document.getElementById('r-message'); // Replace with the ID of your error message element
@@ -260,13 +238,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   inputElement.addEventListener('blur', function(event) {
-    if (!validateInput(event.target.value)) {
-      event.target.style.borderColor = 'red'; // Tetap merah jika input tidak valid
-    } else {
-      event.target.style.borderColor = 'black'; // Ubah ke hitam jika input valid
+    if (!validateInput(event.target.value)) { // Jika input tidak valid
+      event.target.style.borderColor = 'red'; // Ubah ke merah
+    } else { // Jika input valid
+      event.target.style.borderColor = 'black'; // Ubah ke hitam
     }
   });
 });
+
 
 
 

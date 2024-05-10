@@ -99,7 +99,7 @@ include("config.php");
           <label for="password">Password</label><br>
         </div>
             <input type="password" id="password" name="password" placeholder="Minimal 8 karakter"><br>
-            <div id="message"></div>
+            <div id="message2"></div>
       </div>     
       <div class="input-n">
         <div class="label-cover">

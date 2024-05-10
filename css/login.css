@@ -124,7 +124,7 @@ label[for="r-password2"],label[for="phone"] , label[for="email"], label[for="pas
 
 
 
-#n-message, #r-message, #message, #e-response, #p-response{
+#n-message, #r-message, #message2, #e-response, #p-response{
   color: red;
   font-size: 10px;
   padding-top: 0.5rem;
