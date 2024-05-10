@@ -31,6 +31,7 @@ inputElement.addEventListener('input', function(event) {
       if (response.trim() === 'Email already exists') { // Ganti dengan pesan error yang sesuai dari server Anda
         event.target.style.borderColor = 'red'; // Ubah ke hitam
         isEmailValid = false; // Ubah status validasi email
+        emessage.innerHTML = 'Email sudah digunakan untuk akun yang lain';
       } else if (validateEmail(event.target.value)) {
         event.target.style.borderColor = 'green'; // Ubah ke hijau jika kondisi terpenuhi
         emessage.innerHTML = ''; // Hapus pesan error
@@ -122,18 +123,21 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Event listener untuk saat pengguna mengetik di input
-  inputElement.addEventListener('keyup', function(event) {
+  inputElement.addEventListener('input', function(event) {
     if (validateInput(event.target.value)) {
       event.target.style.borderColor = 'green'; // Ubah ke hijau jika kondisi terpenuhi
-      inputElement.addEventListener('blur', function(event) {
-          event.target.style.borderColor = 'black';   // Kembalikan ke hitam saat berpindah dari input
-        });
       isPhoneValid = true
     } else {
       event.target.style.borderColor = 'red';   // Ubah ke merah jika kondisi tidak terpenuhi
     }
   });
-
+  inputElement.addEventListener('blur', function(event) {
+    if (!validateInput(event.target.value)) {
+      event.target.style.borderColor = 'red'; // Tetap merah jika input tidak valid
+    } else {
+      event.target.style.borderColor = 'black'; // Ubah ke hitam jika input valid
+    }
+  });
   // Event listener untuk saat input kehilangan fokus
   
 });
@@ -155,9 +159,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (validateInput(event.target.value)) {
       event.target.style.borderColor = 'green'; // Ubah ke hijau jika kondisi terpenuhi
       // Event listener untuk saat input kehilangan fokus
-     inputElement.addEventListener('blur', function(event) {
-    event.target.style.borderColor = 'black'; // Kembalikan ke hitam saat berpindah dari input
-  });
       nmessage.innerHTML = ''; // Hapus pesan kesalahan
       isNamaValid = true;
       
@@ -167,38 +168,74 @@ document.addEventListener('DOMContentLoaded', function() {
       isNamaValid = false;
     }
   });
+  inputElement.addEventListener('blur', function(event) {
+    if (!validateInput(event.target.value)) {
+      event.target.style.borderColor = 'red'; // Tetap merah jika input tidak valid
+    } else {
+      event.target.style.borderColor = 'black'; // Ubah ke hitam jika input valid
+    }
+  });
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  var inputElement = document.getElementById('password'); // Ganti dengan ID input HTML Anda
-  var nmessage = document.getElementById('message'); // Ganti dengan ID elemen pesan kesalahan
+  var inputElement = document.getElementById('name2');
+  var nmessage = document.getElementById('n-message');
 
-  // Fungsi untuk memeriksa apakah input memenuhi kondisi Anda
   function validateInput(value) {
-    // Allow only alphabetical characters (letters) and at least 8 characters
+    var isAlphabetical = /^[a-zA-Z\s]+$/.test(value);
+    return value.length === 0 || isAlphabetical;
+  }
+
+  inputElement.addEventListener('input', function(event) {
+    if (validateInput(event.target.value)) {
+      event.target.style.borderColor = 'green';
+      nmessage.innerHTML = '';
+      isNamaValid = true;
+    } else {
+      event.target.style.borderColor = 'red';
+      nmessage.innerHTML = 'Harus karakter alphabet';
+      isNamaValid = false;
+    }
+  });
+
+  inputElement.addEventListener('blur', function(event) {
+    if (!validateInput(event.target.value)) {
+      event.target.style.borderColor = 'red';
+    } else {
+      event.target.style.borderColor = 'black';
+    }
+  });
+});
+
+var isPas = false;
+document.addEventListener('DOMContentLoaded', function() {
+  var inputElement = document.getElementById('password');
+  var nmessage = document.getElementById('message');
+
+  function validateInput(value) {
     var input = /^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/.test(value);
     return input;
   }
 
-  // Event listener untuk saat pengguna mengetik di input
   inputElement.addEventListener('input', function(event) {
     if (validateInput(event.target.value)) {
-      event.target.style.borderColor = 'green'; // Ubah ke hijau jika kondisi terpenuhi
-      nmessage.innerHTML = ''; // Hapus pesan kesalahan
-      inputElement.addEventListener('blur', function(event) {
-        event.target.style.borderColor = 'black'; // Kembalikan ke hitam saat berpindah dari input
-      });
-      isPasswordValid = true
+      event.target.style.borderColor = 'green';
+      nmessage.innerHTML = '';
     } else {
-      event.target.style.borderColor = 'red'; // Ubah ke merah jika kondisi tidak terpenuhi
-      nmessage.innerHTML = 'Password harus berisi min. 8 karakter, kombinasi angka (0-9) dan huruf alfabet (A-Z)'; // Tampilkan pesan kesalahan
-      isPasswordValid = false;
+      event.target.style.borderColor = 'red';
+      nmessage.innerHTML = 'Password harus berisi min. 8 karakter, kombinasi angka (0-9) dan huruf alfabet (A-Z)';
     }
-
   });
-  
-});
 
+  // remove the blur event listener
+  // inputElement.addEventListener('blur', function(event) {
+  //   if (!validateInput(event.target.value)) {
+  //     event.target.style.borderColor = 'red';
+  //   } else {
+  //     event.target.style.borderColor = 'black';
+  //   }
+  // });
+});
 document.addEventListener('DOMContentLoaded', function() {
   var validateElement = document.getElementById('r-password');
   var nmessage = document.getElementById('r-message'); // Replace with the ID of your error message element
@@ -209,21 +246,24 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Event listener for when the user types in the input
-  validateElement.addEventListener('input', function(event) { // Change 'input' to 'keyup'
+  validateElement.addEventListener('keyup', function(event) { // Change 'input' to 'keyup'
     var isValid = validateInput(event.target.value); // Corrected event reference
     if (isValid) {
       event.target.style.borderColor = 'green'; // Change to green if the condition is met
       nmessage.innerHTML = ''; // Clear error message
-       // Event listener for when the input loses focus
-      validateElement.addEventListener('blur', function(event) {
-        event.target.style.borderColor = ''; // Reset to default border color when moving away from the input
-      });
       isPasswordMatch = true
     } else {
       event.target.style.borderColor = 'red'; // Change to red if the condition is not met
       nmessage.innerHTML = 'Password harus sama dengan password baru'; // Display error message
       isPasswordMatch = false;
       
+    }
+  });
+  inputElement.addEventListener('blur', function(event) {
+    if (!validateInput(event.target.value)) {
+      event.target.style.borderColor = 'red'; // Tetap merah jika input tidak valid
+    } else {
+      event.target.style.borderColor = 'black'; // Ubah ke hitam jika input valid
     }
   });
 });
@@ -251,12 +291,12 @@ function checkFields() {
 function toggleButton() {
   if (!checkFields() && isNamaValid && isPhoneValid && isEmailValid && isPasswordValid && isPasswordMatch) {
       button.removeAttribute('disabled');
-      button.style.backgroundColor = ' rgb(70, 171, 72)';
+      button.style.backgroundColor = 'rgb(70, 171, 72)';
       button.style.color = 'white';
   } else {
       button.setAttribute('disabled', 'disabled');
       button.style.backgroundColor= '#dcdcdc';
-      button.style.color = rgb(164, 164, 164);
+      button.style.color = 'rgb(164, 164, 164)';
   }
 }
 

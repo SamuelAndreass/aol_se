@@ -19,6 +19,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
 </head>
@@ -80,7 +83,7 @@ include("config.php");
         <label for="phone">Nomor Handphone</label><br>
         </div>
             <input type="tel"  name="phonenum2" id="phone" placeholder="Masukkan nomor handphone aktif" required><br>
-            <span id="p-response"></span>
+            <div id="p-response"></div>
             
       </div>
       <div class="input-n">
@@ -96,14 +99,14 @@ include("config.php");
           <label for="password">Password</label><br>
         </div>
             <input type="password" id="password" name="password" placeholder="Minimal 8 karakter"><br>
-            <span id="message"></span>
+            <div id="message"></div>
       </div>     
       <div class="input-n">
         <div class="label-cover">
           <label for="r-password2">Ulangi password</label><br>
         </div>
             <input type="password" name="r-password" id="r-password" placeholder="Minimal 8 karakter"><br>
-            <span id="r-message"></span>
+            <div id="r-message"></div>
       </div>
       <div class="button-container">
         <button type="submit"name="submit" id="button-login" class="submit-button" disabled="disabled">Daftar
