@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-
+<link rel="stylesheet" type="text/css"href="../css/styles.css">
 <link rel="stylesheet" type="text/css"href="../css/login.css">
 <!-- box icons -->
 <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -32,10 +32,24 @@
     <div class="menu-cta-group"> <!-- Tambahkan kontainer ini -->
       <nav id="navbar">
         <ul>
-          <li><a href="#">Cari apa?</a></li>
-          <li><a href="#">Pusat Bantuan</a></li>
+          <li><a href="faq.php">FAQ</a></li>
+          <li><a href="contact.php">Hubungi Kami</a></li>
         </ul>
       </nav>
+
+      <main>
+        <?php
+            // Memeriksa apakah parameter page ada dan valid
+            $page = isset($_GET['page']) ? $_GET['page'] : '';
+            $allowed_pages = array('faq', 'contact'); // Daftar halaman yang diperbolehkan
+            
+            if (in_array($page, $allowed_pages)) {
+                include($page . '.php'); // Memuat halaman yang diminta jika valid
+            } else {
+               
+            }
+        ?>
+    </main>
     </div>
   </header>
 
