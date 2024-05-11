@@ -30,12 +30,14 @@ header {
     border-bottom: 1px solid rgb(216, 211, 211); /* Tambahkan ini */
     padding: 1rem;
     margin-right: 0px;
-    margin-bottom: 10px;
+    
+    background: transparent;
   }
   
 .logo-brand {
+  margin-left: 20px;
     width: auto;
-    height: 60px;
+    height:40px;
     
   }
   
@@ -82,14 +84,14 @@ header {
     background-position: 100% 0;
     background-repeat: no-repeat;
     background-size: 80%;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 90px);
     padding: 48px 0;
 }
 
 .login-title{
     
     font-weight: 10rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 
@@ -128,20 +130,43 @@ label[for="r-password2"],label[for="phone"] , label[for="email"], label[for="pas
   color: red;
   font-size: 10px;
   padding-top: 0.5rem;
+
 }
 
 ::placeholder{
   font-size: 10px;
   vertical-align: baseline;
+  font-family: "Lato", sans-serif;
 }
 
 
 .input-n{
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  position: relative  ;
 }
 
+.password-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.password-wrapper input,
+.password-wrapper i {
+  vertical-align: middle;
+}
+
+.password-wrapper i {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-30%);
+}
+
+
 .input-n1{
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  margin-top: 25px;
 }
 
 input[type=text], input[type=password]{
@@ -149,8 +174,10 @@ input[type=text], input[type=password]{
   width: 100%; /* atau ukuran spesifik lainnya */
   border-radius: 0.25rem;
   padding: 8px 6px 8px 10px;
-  border: 1px solid black;
-  margin-top: 10px
+  border: 0.5px solid rgb(210, 210, 210);
+  margin-top: 10px;
+  font-family: "Lato", sans-serif;
+  
 }
 
 input[type=email], input[type=tel]{
@@ -158,8 +185,9 @@ input[type=email], input[type=tel]{
   width: 100%; /* atau ukuran spesifik lainnya */
   border-radius: 0.25rem;
   padding: 8px 6px 8px 10px;
-  border: 1px solid black;
+  border: 0.5px solid rgb(210, 210, 210);
   margin-top: 10px; 
+  font-family: "Lato", sans-serif;
 }
 
 

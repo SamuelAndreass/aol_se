@@ -45,7 +45,13 @@ inputElement.addEventListener('input', function(event) {
   });
 });
 
-  
+inputElement.addEventListener('blur', function(event) {
+  if (isEmailValid === false) {
+    event.target.style.borderColor = 'red'; // Tetap merah jika input tidak valid
+  } else {
+    event.target.style.borderColor = 'rgb(210, 210, 210)'; // Ubah ke hitam jika input valid
+  }
+});
 });
 
 
@@ -105,6 +111,8 @@ $(document).ready(function() {
         if (response.indexOf('Phone already exists!') !== -1) {
           phoneIsValid = false; // Set phone validation status to false
           phonemessage.innerHTML = "Nomor telepon sudah digunakan untuk akun yang lain"
+          isPhoneValid = false;
+          phone.style.borderColor = 'red'
         }
       }
     });
@@ -119,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function validateInput(value) {
     // Ganti ini dengan logika validasi Anda
     var isNumeric = /^[0-9]+$/.test(value);
-    return value.startsWith('08') && value.length <= 14 && isNumeric && value.length>=10 && phoneIsValid;
+    return value.startsWith('08') && value.length <= 14 && isNumeric && value.length>=10 && isPhoneValid === true;
   }
 
   // Event listener untuk saat pengguna mengetik di input
@@ -135,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!validateInput(event.target.value)) {
       event.target.style.borderColor = 'red'; // Tetap merah jika input tidak valid
     } else {
-      event.target.style.borderColor = 'black'; // Ubah ke hitam jika input valid
+      event.target.style.borderColor = 'grey'; // Ubah ke hitam jika input valid
     }
   });
   // Event listener untuk saat input kehilangan fokus
@@ -172,15 +180,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!validateInput(event.target.value)) {
       event.target.style.borderColor = 'red'; // Tetap merah jika input tidak valid
     } else {
-      event.target.style.borderColor = 'black'; // Ubah ke hitam jika input valid
+      event.target.style.borderColor = 'rgb(210, 210, 210)'; // Ubah ke hitam jika input valid
     }
   });
 });
 
-
+var validateElement = document.getElementById('password22');
 document.addEventListener('DOMContentLoaded', function() {
   var nmessage = document.getElementById('message2');
-  var validateElement = document.getElementById('password');
+  
   function validateInput(value) {
     var output = /^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/.test(value); 
     return output;
@@ -197,19 +205,17 @@ document.addEventListener('DOMContentLoaded', function() {
       isPasswordValid = false;
     }
   });
-
-
-  
-
-
-validateElement.addEventListener('blue', function(event) { // Ganti 'inputElement' dengan 'validateElement'
-  if (!validateInput(event.target.value)) {
-    event.target.style.borderColor = 'red';
-  } else {
-    event.target.style.borderColor = 'black';
-  }
-}, true);
+  validateElement.addEventListener('blur', function(event) { // Ganti 'inputElement' dengan 'validateElement'
+    if (isPasswordValid === false) {
+      event.target.style.borderColor = 'red';
+      console.log('blur triggred')
+    } else {
+      event.target.style.borderColor = 'rgb(210, 210, 210)';
+      console.log('blur triggred')
+    }
+    });
 });
+
 
 
 
@@ -218,13 +224,13 @@ document.addEventListener('DOMContentLoaded', function() {
   var validateElement = document.getElementById('r-password');
   var nmessage = document.getElementById('r-message'); // Replace with the ID of your error message element
   // Function to check if the input meets your conditions
-  var inputElement = document.getElementById('password'); // Replace with the ID of your HTML input
+  var inputElement22 = document.getElementById('password22'); // Replace with the ID of your HTML input
   function validateInput(value) {
-    return value === inputElement.value;
+    return value === inputElement22.value;
   }
   
   // Event listener for when the user types in the input
-  validateElement.addEventListener('keyup', function(event) { // Change 'input' to 'keyup'
+  validateElement.addEventListener('input', function(event) { // Change 'input' to 'keyup'
     var isValid = validateInput(event.target.value); // Corrected event reference
     if (isValid) {
       event.target.style.borderColor = 'green'; // Change to green if the condition is met
@@ -241,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!validateInput(event.target.value)) { // Jika input tidak valid
       event.target.style.borderColor = 'red'; // Ubah ke merah
     } else { // Jika input valid
-      event.target.style.borderColor = 'black'; // Ubah ke hitam
+      event.target.style.borderColor = 'grey'; // Ubah ke hitam
     }
   });
 });
@@ -285,4 +291,23 @@ inputs.forEach(function(input) {
   input.addEventListener('keyup', function() {
       toggleButton();
   });
+});
+const togglePassword = document.querySelector('#togglePassword');
+const password = document.getElementById('password22');
+togglePassword.addEventListener('click', function (e) {
+  // toggle the type attribute
+  const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+  password.setAttribute('type', type);
+  // toggle the eye / eye slash icon
+  this.classList.toggle('bi-eye');
+});
+
+const togglePassword2 = document.querySelector('#togglePassword2');
+const password2 = document.getElementById('r-password');
+togglePassword2.addEventListener('click', function (e) {
+  // toggle the type attribute
+  const type2 = password2.getAttribute('type') === 'password' ? 'text' : 'password';
+  password2.setAttribute('type', type2);
+  // toggle the eye / eye slash icon
+  this.classList.toggle('bi-eye');
 });

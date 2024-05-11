@@ -6,6 +6,7 @@
   <title>Document</title>
 
 <link rel="stylesheet" type="text/css"href="../css/login.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 <!-- box icons -->
 <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -30,7 +31,7 @@
   <!-- template header -->
   <header>
     <div class="logo1">
-      <a href="menu.html" ><img src="../asset/WhatsApp Image 2024-05-05 at 14 2.png" class="logo-brand"></a>
+      <a href="menu.html" ><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" class="logo-brand"></a>
     </div>
     <div class="menu-cta-group"> <!-- Tambahkan kontainer ini -->
       <nav id="navbar">
@@ -64,8 +65,7 @@ include("config.php");
 
       else {
         mysqli_query($con,"INSERT INTO users(namaUser, nomorTelpon, emailUser, userPassword) VALUES('$nama2', '$phonenum2', '$mail', '$password')");
-        echo "<script>alert('Akun berhasil dibuat')</script>";
-        echo "<a href = <a hre  f='index.php'> <button class='btn'>login now </button>";
+        echo "<script>alert('Akun berhasil dibuat'); window.location.href='menu.html';</script>";
       }
     } else{
 ?>
@@ -93,19 +93,25 @@ include("config.php");
             <input type="email" id="mail" name="mail" placeholder="Masukkan email untuk kostify" required>
             <div id="e-response"></div>  
       </div>
-
       <div class="input-n">
         <div class="label-cover">
           <label for="password">Password</label><br>
         </div>
-            <input type="password" id="password" name="password" placeholder="Minimal 8 karakter"><br>
+        <div class="password-wrapper">
+        <input type="password" id="password22" name="password" placeholder="Minimal 8 karakter">
+            <i class="bi bi-eye-slash" id="togglePassword"></i><br>
+        </div>   
             <div id="message2"></div>
+        
       </div>     
       <div class="input-n">
         <div class="label-cover">
           <label for="r-password2">Ulangi password</label><br>
         </div>
+        <div class="password-wrapper">
             <input type="password" name="r-password" id="r-password" placeholder="Minimal 8 karakter"><br>
+            <i class="bi bi-eye-slash" id="togglePassword2"></i>
+        </div>
             <div id="r-message"></div>
       </div>
       <div class="button-container">
