@@ -31,6 +31,7 @@ inputElement.addEventListener('input', function(event) {
       if (response.trim() === 'Email already exists') { // Ganti dengan pesan error yang sesuai dari server Anda
         event.target.style.borderColor = 'red'; // Ubah ke hitam
         isEmailValid = false; // Ubah status validasi email
+        emessage.innerHTML = 'Email sudah digunakan untuk akun yang lain';
       } else if (validateEmail(event.target.value)) {
         event.target.style.borderColor = 'green'; // Ubah ke hijau jika kondisi terpenuhi
         emessage.innerHTML = ''; // Hapus pesan error
@@ -44,7 +45,13 @@ inputElement.addEventListener('input', function(event) {
   });
 });
 
-  
+inputElement.addEventListener('blur', function(event) {
+  if (isEmailValid === false) {
+    event.target.style.borderColor = 'red'; // Tetap merah jika input tidak valid
+  } else {
+    event.target.style.borderColor = 'rgb(210, 210, 210)'; // Ubah ke hitam jika input valid
+  }
+});
 });
 
 
@@ -104,6 +111,8 @@ $(document).ready(function() {
         if (response.indexOf('Phone already exists!') !== -1) {
           phoneIsValid = false; // Set phone validation status to false
           phonemessage.innerHTML = "Nomor telepon sudah digunakan untuk akun yang lain"
+          isPhoneValid = false;
+          phone.style.borderColor = 'red'
         }
       }
     });
@@ -118,22 +127,25 @@ document.addEventListener('DOMContentLoaded', function() {
   function validateInput(value) {
     // Ganti ini dengan logika validasi Anda
     var isNumeric = /^[0-9]+$/.test(value);
-    return value.startsWith('08') && value.length <= 14 && isNumeric && value.length>=10 && phoneIsValid;
+    return value.startsWith('08') && value.length <= 14 && isNumeric && value.length>=10 && isPhoneValid === true;
   }
 
   // Event listener untuk saat pengguna mengetik di input
-  inputElement.addEventListener('keyup', function(event) {
+  inputElement.addEventListener('input', function(event) {
     if (validateInput(event.target.value)) {
       event.target.style.borderColor = 'green'; // Ubah ke hijau jika kondisi terpenuhi
-      inputElement.addEventListener('blur', function(event) {
-          event.target.style.borderColor = 'black';   // Kembalikan ke hitam saat berpindah dari input
-        });
       isPhoneValid = true
     } else {
       event.target.style.borderColor = 'red';   // Ubah ke merah jika kondisi tidak terpenuhi
     }
   });
-
+  inputElement.addEventListener('blur', function(event) {
+    if (!validateInput(event.target.value)) {
+      event.target.style.borderColor = 'red'; // Tetap merah jika input tidak valid
+    } else {
+      event.target.style.borderColor = 'grey'; // Ubah ke hitam jika input valid
+    }
+  });
   // Event listener untuk saat input kehilangan fokus
   
 });
@@ -155,9 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (validateInput(event.target.value)) {
       event.target.style.borderColor = 'green'; // Ubah ke hijau jika kondisi terpenuhi
       // Event listener untuk saat input kehilangan fokus
-     inputElement.addEventListener('blur', function(event) {
-    event.target.style.borderColor = 'black'; // Kembalikan ke hitam saat berpindah dari input
-  });
       nmessage.innerHTML = ''; // Hapus pesan kesalahan
       isNamaValid = true;
       
@@ -167,78 +176,91 @@ document.addEventListener('DOMContentLoaded', function() {
       isNamaValid = false;
     }
   });
-
-  
+  inputElement.addEventListener('blur', function(event) {
+    if (!validateInput(event.target.value)) {
+      event.target.style.borderColor = 'red'; // Tetap merah jika input tidak valid
+    } else {
+      event.target.style.borderColor = 'rgb(210, 210, 210)'; // Ubah ke hitam jika input valid
+    }
+  });
 });
 
+var validateElement = document.getElementById('password22');
 document.addEventListener('DOMContentLoaded', function() {
-  var inputElement = document.getElementById('password'); // Ganti dengan ID input HTML Anda
-  var nmessage = document.getElementById('message'); // Ganti dengan ID elemen pesan kesalahan
-
-  // Fungsi untuk memeriksa apakah input memenuhi kondisi Anda
+  var nmessage = document.getElementById('message2');
+  
   function validateInput(value) {
-    // Allow only alphabetical characters (letters) and at least 8 characters
-    var input = /^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/.test(value);
-    return input;
+    var output = /^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/.test(value); 
+    return output;
   }
-
-  // Event listener untuk saat pengguna mengetik di input
-  inputElement.addEventListener('input', function(event) {
+  
+  validateElement.addEventListener('input', function(event) {
     if (validateInput(event.target.value)) {
-      event.target.style.borderColor = 'green'; // Ubah ke hijau jika kondisi terpenuhi
-      nmessage.innerHTML = ''; // Hapus pesan kesalahan
-      inputElement.addEventListener('blur', function(event) {
-        event.target.style.borderColor = 'black'; // Kembalikan ke hitam saat berpindah dari input
-      });
-      isPasswordValid = true
+      event.target.style.borderColor = 'green';
+      nmessage.innerHTML = '';
+      isPasswordValid = true;
     } else {
-      event.target.style.borderColor = 'red'; // Ubah ke merah jika kondisi tidak terpenuhi
-      nmessage.innerHTML = 'Password harus berisi min. 8 karakter, kombinasi angka (0-9) dan huruf alfabet (A-Z)'; // Tampilkan pesan kesalahan
+      event.target.style.borderColor = 'red';
+      nmessage.innerHTML = 'Password harus berisi min. 8 karakter, kombinasi angka (0-9) dan huruf alfabet (A-Z)';
       isPasswordValid = false;
     }
   });
-  
+  validateElement.addEventListener('blur', function(event) { // Ganti 'inputElement' dengan 'validateElement'
+    if (isPasswordValid === false) {
+      event.target.style.borderColor = 'red';
+      console.log('blur triggred')
+    } else {
+      event.target.style.borderColor = 'rgb(210, 210, 210)';
+      console.log('blur triggred')
+    }
+    });
 });
+
+
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
   var validateElement = document.getElementById('r-password');
   var nmessage = document.getElementById('r-message'); // Replace with the ID of your error message element
   // Function to check if the input meets your conditions
-  var inputElement = document.getElementById('password'); // Replace with the ID of your HTML input
+  var inputElement22 = document.getElementById('password22'); // Replace with the ID of your HTML input
   function validateInput(value) {
-    return value === inputElement.value;
+    return value === inputElement22.value;
   }
   
   // Event listener for when the user types in the input
-  validateElement.addEventListener('input', function(event) {
+  validateElement.addEventListener('input', function(event) { // Change 'input' to 'keyup'
     var isValid = validateInput(event.target.value); // Corrected event reference
     if (isValid) {
       event.target.style.borderColor = 'green'; // Change to green if the condition is met
       nmessage.innerHTML = ''; // Clear error message
-       // Event listener for when the input loses focus
-  validateElement.addEventListener('blur', function(event) {
-    event.target.style.borderColor = ''; // Reset to default border color when moving away from the input
-  });
       isPasswordMatch = true
     } else {
       event.target.style.borderColor = 'red'; // Change to red if the condition is not met
       nmessage.innerHTML = 'Password harus sama dengan password baru'; // Display error message
       isPasswordMatch = false;
+      
     }
   });
-
- 
+  inputElement.addEventListener('blur', function(event) {
+    if (!validateInput(event.target.value)) { // Jika input tidak valid
+      event.target.style.borderColor = 'red'; // Ubah ke merah
+    } else { // Jika input valid
+      event.target.style.borderColor = 'grey'; // Ubah ke hitam
+    }
+  });
 });
 
-// Daftar semua elemen input
-var inputElements = document.querySelectorAll('input');
+
+
+
 
 
 var button = document.getElementById('button-login'); 
 // Daftar semua elemen input
 var inputs = document.querySelectorAll('input');
 
-// Fungsi untuk memeriksa apakah semua field telah diisi
 // Fungsi untuk memeriksa apakah semua field telah diisi
 function checkFields() {
   var empty = false;
@@ -254,16 +276,38 @@ function checkFields() {
 function toggleButton() {
   if (!checkFields() && isNamaValid && isPhoneValid && isEmailValid && isPasswordValid && isPasswordMatch) {
       button.removeAttribute('disabled');
-      button.style.backgroundColor = ' rgb(70, 171, 72)';
+      button.style.backgroundColor = 'rgb(70, 171, 72)';
       button.style.color = 'white';
   } else {
       button.setAttribute('disabled', 'disabled');
+      button.style.backgroundColor= '#dcdcdc';
+      button.style.color = 'rgb(164, 164, 164)';
   }
 }
 
+
 // Event listener untuk setiap perubahan pada field input
 inputs.forEach(function(input) {
-  input.addEventListener('input', function() {
+  input.addEventListener('keyup', function() {
       toggleButton();
   });
+});
+const togglePassword = document.querySelector('#togglePassword');
+const password = document.getElementById('password22');
+togglePassword.addEventListener('click', function (e) {
+  // toggle the type attribute
+  const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+  password.setAttribute('type', type);
+  // toggle the eye / eye slash icon
+  this.classList.toggle('bi-eye');
+});
+
+const togglePassword2 = document.querySelector('#togglePassword2');
+const password2 = document.getElementById('r-password');
+togglePassword2.addEventListener('click', function (e) {
+  // toggle the type attribute
+  const type2 = password2.getAttribute('type') === 'password' ? 'text' : 'password';
+  password2.setAttribute('type', type2);
+  // toggle the eye / eye slash icon
+  this.classList.toggle('bi-eye');
 });

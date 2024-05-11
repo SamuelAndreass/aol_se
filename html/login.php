@@ -6,6 +6,7 @@
   <title>Document</title>
 <link rel="stylesheet" type="text/css"href="../css/styles.css">
 <link rel="stylesheet" type="text/css"href="../css/login.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 <!-- box icons -->
 <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,6 +20,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
 </head>
@@ -27,7 +31,7 @@
   <!-- template header -->
   <header>
     <div class="logo1">
-      <a href="menu.html" ><img src="../asset/WhatsApp Image 2024-05-05 at 14 2.png" class="logo-brand"></a>
+      <a href="menu.html" ><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" class="logo-brand"></a>
     </div>
     <div class="menu-cta-group"> <!-- Tambahkan kontainer ini -->
       <nav id="navbar">
@@ -73,17 +77,9 @@ include("config.php");
         die('Error: ' . mysqli_error($con));
       }
 
-      if (mysqli_num_rows($verif_query) != 0) {
-        echo "<div class='message'> 
-                <p> email already in use <p>
-                <div><br>";
-        echo "<a href = javascript:self.history.back()'><button class='btn'> Go back</button>";
-      } else {
+      else {
         mysqli_query($con,"INSERT INTO users(namaUser, nomorTelpon, emailUser, userPassword) VALUES('$nama2', '$phonenum2', '$mail', '$password')");
-        echo "<div class='message'> 
-                <p> Registration success <p>
-                <div><br>";
-        echo "<a href = <a hre  f='index.php'> <button class='btn'>login now </button>";
+        echo "<script>alert('Akun berhasil dibuat'); window.location.href='menu.html';</script>";
       }
     } else{
 ?>
@@ -101,7 +97,7 @@ include("config.php");
         <label for="phone">Nomor Handphone</label><br>
         </div>
             <input type="tel"  name="phonenum2" id="phone" placeholder="Masukkan nomor handphone aktif" required><br>
-            <span id="p-response"></span>
+            <div id="p-response"></div>
             
       </div>
       <div class="input-n">
@@ -111,24 +107,31 @@ include("config.php");
             <input type="email" id="mail" name="mail" placeholder="Masukkan email untuk kostify" required>
             <div id="e-response"></div>  
       </div>
-
       <div class="input-n">
         <div class="label-cover">
           <label for="password">Password</label><br>
         </div>
-            <input type="password" id="password" name="password" placeholder="Minimal 8 karakter"><br>
-            <span id="message"></span>
+        <div class="password-wrapper">
+        <input type="password" id="password22" name="password" placeholder="Minimal 8 karakter">
+            <i class="bi bi-eye-slash" id="togglePassword"></i><br>
+        </div>   
+            <div id="message2"></div>
+        
       </div>     
       <div class="input-n">
         <div class="label-cover">
           <label for="r-password2">Ulangi password</label><br>
         </div>
+        <div class="password-wrapper">
             <input type="password" name="r-password" id="r-password" placeholder="Minimal 8 karakter"><br>
-            <span id="r-message"></span>
+            <i class="bi bi-eye-slash" id="togglePassword2"></i>
+        </div>
+            <div id="r-message"></div>
       </div>
       <div class="button-container">
-        <button type="submit"name="submit"  id="button-login" class="submit-button" disabled="disabled">Daftar
-        </button>
+        <button type="submit"name="submit" id="button-login" class="submit-button" disabled="disabled">Daftar
+        
+      </button>
       </div>
       
     </form>
