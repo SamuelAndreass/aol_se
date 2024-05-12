@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-<link rel="stylesheet" type="text/css"href="../css/styles.css">
+
 <link rel="stylesheet" type="text/css"href="../css/login.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 <!-- box icons -->
@@ -31,7 +31,7 @@
   <!-- template header -->
   <header>
     <div class="logo1">
-      <a href="menu.html" ><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" class="logo-brand"></a>
+      <a href="menu.php" ><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" class="logo-brand"></a>
     </div>
     <div class="menu-cta-group"> <!-- Tambahkan kontainer ini -->
       <nav id="navbar">

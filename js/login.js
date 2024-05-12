@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 inputElement.addEventListener('input', function(event) {
   // Kirim permintaan AJAX
   $.ajax({
-    url: '../php/check_email.php',
+    url: '../validationDB/check_email.php',
     type: 'POST',
     data: { email: event.target.value },
     success: function(response) {
@@ -103,7 +103,7 @@ $(document).ready(function() {
     var ajax_response;
     // Send AJAX request
     $.ajax({
-      url: '../php/chek_phone.php',
+      url: '../validationDB/chek_phone.php',
       type: 'POST',
       data: { phone: phone },
       success: function(response) {
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!validateInput(event.target.value)) {
       event.target.style.borderColor = 'red'; // Tetap merah jika input tidak valid
     } else {
-      event.target.style.borderColor = 'grey'; // Ubah ke hitam jika input valid
+      event.target.style.borderColor = 'rgb(210, 210, 210)'; // Ubah ke hitam jika input valid
     }
   });
   // Event listener untuk saat input kehilangan fokus
@@ -243,11 +243,11 @@ document.addEventListener('DOMContentLoaded', function() {
       
     }
   });
-  inputElement.addEventListener('blur', function(event) {
+  validateElement.addEventListener('blur', function(event) {
     if (!validateInput(event.target.value)) { // Jika input tidak valid
       event.target.style.borderColor = 'red'; // Ubah ke merah
     } else { // Jika input valid
-      event.target.style.borderColor = 'grey'; // Ubah ke hitam
+      event.target.style.borderColor = 'rgb(210, 210, 210)'; // Ubah ke hitam
     }
   });
 });
