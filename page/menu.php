@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +26,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 
@@ -55,51 +56,19 @@
           </div> <!-- Tutup kontainer yang ditambahkan -->
         </div> <!-- Tutup kontainer yang ditambahkan -->
       </header>
-
-
+      <?php include('../validationDB/action.php')?>
+     
       <div id="myModal" class="modal">
      
         <!-- Modal content -->
         <div class="modal-content">
           <span class="close">&times;</span> 
           
-<?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-session_start();
-include('config.php');
-
-if(isset($_SESSION['log'])){
-    header('location:menu.php');
-}
-
-if(isset($_POST['submit'])){
-    $phone = mysqli_real_escape_string($con, $_POST['phone2']);
-    $pwd = mysqli_real_escape_string($con, $_POST['pwd2']);
-    $query_user = $con->prepare("SELECT * FROM users WHERE nomorTelpon = ? and userPassword = ?");
-    $query_user->bind_param("is", $phone, $pwd);
-    $query_user->execute();
-    $result = $query_user->get_result();
-    $cari_user = $result->fetch_assoc();
-
-    if($cari_user){
-        if(password_verify($pwd, $cari_user['userPassword'])){
-            $_SESSION['namauser'] = $cari_user['namaUser'];
-            echo'<script>alert("anda berhasil login, halo ' . $cari_user['namaUser'] . '");windows.location= "index.php"</script>';
-        } else {
-            echo'<script>alert("Password yang anda masukkan salah)"; history.go(-1);</script>';
-        }
-    } else {
-        echo'<script>alert("Data yang anda masukkan salah)"; history.go(-1);</script>';
-    }
-}
-?>
           <p id="title-modal-login">Masuk ke 
             <h1 class="nama">KOSTIFY</h1></p>
     
-          <form method="POST" >
+          <form method="POST" action="">
           <div class="input">
             <label for="phone" id="telpon">Nomor Handphone:</label><br>
             <input type="text" id="phone" name="phone"><br>
@@ -119,7 +88,30 @@ if(isset($_POST['submit'])){
               <a href="buatAkun.php" class="register-e">Daftar sekarang</a></p>
             
           </form>
-            
+          
+          <script>
+$(document).ready(function(){
+  $("form").on("submit", function(event){
+    
+
+    $.ajax({
+      url: '../validationDB/action.php', // Change this to the path of your PHP script
+      type: 'post',
+      data: $(this).serialize(),
+      success: function(response){
+    var data = JSON.parse(response);
+    if (data.status === 'success') {
+        window.location.href = 'buatAkun.php';
+    } else {
+        // Select the modal element and display the error message
+        $('.modal-content').append('<p>' + data.message + '</p>');
+    }
+}
+
+    });
+  });
+});
+</script>
         </div>
        
       </div>
