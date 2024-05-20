@@ -134,6 +134,7 @@ body {
     border-bottom: 1px solid rgb(216, 211, 211); /* Tambahkan ini */
     padding: 1rem;
     margin-right: 20px;
+    position: sticky;
   }
   
 
@@ -275,51 +276,52 @@ body {
 }
  
   
-  footer {
-    background-color: #f2f2f2;
-    padding: 1rem;
-    text-align: center;
-
-  }
-
-.navbar .navbar-extra a{
-    color: #fff;
-    font-size: 24px; /* Increase the font size */
-  width: 40px; /* Adjust the width */
-  height: 40px; /* Adjust the height */
-    margin: 0 0.5rem;
-
-}
-/* Tambahkan ini */
-
-.navbar .navbar-extra a:hover{
-    color: var(--primary);
+.diskon {
+  font-family: Arial, sans-serif;
 }
 
-
-
-/* Tambahkan ini */
-#navbar {
-    display: flex;
-  }
-.hamburger {
-    display: none;
+.price {
+  font-size: 1.5em;
+  font-weight: bold;
 }
-/* Tambahkan ini */
-.cta-hamburger-group {
-    display: flex;
-    align-items: center;
-  }
-  
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: #101010;
-}  
+
+.original-price,
+.discounted-price {
+  font-size: 1.2em;
+  text-decoration: line-through;
+}
+
+.discounted-price {
+  color: #4d94ff;
+}
+
+.additional-info {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.button {
+  display: inline-block;
+  margin: 0.5em 0.5em 0 0;
+  padding: 0.5em 1em;
+  background-color: #4d94ff;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #357dea;
+}
+
+
+
+
+
+
+
 
 @media screen and (max-width: 1190px) {
     #navbar {

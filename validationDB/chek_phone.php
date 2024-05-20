@@ -1,6 +1,6 @@
 <?php
 // Include yourdatabase configuration file
-include("../html/config.php");
+include("../page/config.php");
 
 // Check if 'phone' is sent via POST
 if (isset($_POST['phone']) && !empty($_POST['phone'])) {

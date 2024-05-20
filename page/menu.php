@@ -28,6 +28,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 
 
@@ -35,7 +40,7 @@
   <!-- template header -->
     <header>
         <div class="logo">
-          <a href="menu.html"><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" alt="Logo"></a>
+          <a href="menu.php"><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" alt="Logo"></a>
         </div>
         <div class="menu-cta-group"> <!-- Tambahkan kontainer ini -->
           <nav id="navbar">
@@ -56,28 +61,32 @@
           </div> <!-- Tutup kontainer yang ditambahkan -->
         </div> <!-- Tutup kontainer yang ditambahkan -->
       </header>
-      <?php include('../validationDB/action.php')?>
-     
+      
       <div id="myModal" class="modal">
-     
         <!-- Modal content -->
         <div class="modal-content">
           <span class="close">&times;</span> 
           
-
+          <?php   
+              session_start();
+              include('../validationDB/action.php');
+              $rr = isset($_SESSION['rr']) ? $_SESSION['rr'] : '';
+              ?>
           <p id="title-modal-login">Masuk ke 
             <h1 class="nama">KOSTIFY</h1></p>
-    
+            <div class="error-message-wrapper">
+              <div class="error-message"><?php echo htmlspecialchars($rr, ENT_QUOTES, 'UTF-8'); ?></div>
+            </div>
           <form method="POST" action="">
           <div class="input">
             <label for="phone" id="telpon">Nomor Handphone:</label><br>
             <input type="text" id="phone" name="phone"><br>
-            <div id="p-message2" style="color:red; font-family:'Lato', sans-serif; font-size:10px"></div>
+            <div id="p-message2" style="color:red; font-family:'Lato', sans-serif; font-size:12px; margin-bottom:10px;"></div>
           </div>
           <div class="input">
             <label for="pwd" id="password">Password:</label><br>
             <input type="password" id="pwd" name="pwd"><br>
-            <div id="pwd2"></div>
+            <div id="pwd2" style="color:red; font-family:'Lato', sans-serif; font-size:12px; margin-bottom:10px;"></div>
           </div>
             <div class="login-btn-container">
               <button type="submit"value ="Login"id="button-login" disabled="disabled">Login</button>
@@ -87,33 +96,8 @@
             <p>Belum punya akun Kostify? 
               <a href="buatAkun.php" class="register-e">Daftar sekarang</a></p>
             
-          </form>
-          
-          <script>
-$(document).ready(function(){
-  $("form").on("submit", function(event){
-    
-
-    $.ajax({
-      url: '../validationDB/action.php', // Change this to the path of your PHP script
-      type: 'post',
-      data: $(this).serialize(),
-      success: function(response){
-    var data = JSON.parse(response);
-    if (data.status === 'success') {
-        window.location.href = 'buatAkun.php';
-    } else {
-        // Select the modal element and display the error message
-        $('.modal-content').append('<p>' + data.message + '</p>');
-    }
-}
-
-    });
-  });
-});
-</script>
-        </div>
-       
+          </form>         
+        </div>       
       </div>
       <!-- template header -->
       <script src="../js/menu.js"></script>

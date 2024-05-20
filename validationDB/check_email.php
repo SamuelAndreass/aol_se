@@ -1,7 +1,7 @@
 
 <?php
 // Include your database configuration file
-include("../html/config.php");
+include("../page/config.php");
 
 // Check if 'email' is sent via POST
 if (isset($_POST['email']) && !empty($_POST['email'])) {

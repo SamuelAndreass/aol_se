@@ -119,3 +119,41 @@ inputs.forEach(function(input) {
       toggleButton();
   });
 });
+
+
+$(document).ready(function(){
+  var error = "<?php echo $rr; ?>"; // get the error message from PHP
+  if(error) {
+      $('#myModal').show(); // show the modal if there is an error
+  }
+});
+
+document.addEventListener('DOMContentLoaded', (event) => {
+var error = "<?php echo $rr; ?>"; // get the error message from PHP
+if(error === "Password atau nomor handphone yang anda masukkan salah") {
+    document.getElementById('myModal').style.display = 'block'; // show the modal if there is an error
+}
+});
+
+
+$(document).ready(function(){
+  $("form").on("submit", function(event){
+    
+
+    $.ajax({
+      url: '../validationDB/action.php', // Change this to the path of your PHP script
+      type: 'post',
+      data: $(this).serialize(),
+      success: function(response){
+    var data = JSON.parse(response);
+    if (data.status === 'success') {
+        window.location.href = 'buatAkun.php';
+    } else {
+        // Select the modal element and display the error message
+        $('.modal-content').append('<p>' + data.message + '</p>');
+    }
+}
+
+    });
+  });
+});

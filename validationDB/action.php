@@ -1,7 +1,7 @@
 <?php
-include("config.php");
+include("../page/config.php");
 // Start the session
-
+$rr = '';
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -24,15 +24,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($pwd === $user['userPassword']) {
             // The password is correct. Authenticate the user.
             $_SESSION['user'] = $user;
-            echo json_encode(['status' => 'success']);
+            echo '<script>
+            alert("berhasil login");
+            window.location.href = "../page/menu.php";
+            </script>';;
           } else {
               // The password is incorrect. Show an error message.
-              echo json_encode(['status' => 'error', 'message' => 'Incorrect password.']);
+              $_SESSION['rr'] = 'Password atau nomor handphone tidak sesuai';
               
           }
       } else {
-          // The user does not exist. Show an error message.
-          echo json_encode(['status' => 'error', 'message' => 'No user found with that phone number.']);
+        $_SESSION['rr'] = 'Password atau nomor handphone tidak sesuai';
       }
 
     // Close the connection
