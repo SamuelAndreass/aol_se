@@ -58,10 +58,12 @@
         </div> <!-- Tutup kontainer yang ditambahkan -->
       </header>
 
+      <!-- modal login menu -->
       <div id="myModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
           <span class="close">&times;</span> 
+          <div id="gatau"></div>
           <p id="title-modal-login">Masuk ke 
             <h1 class="nama">KOSTIFY</h1></p>
               <div style="margin-bottom:12px;">Saya ingin masuk sebagai</div>   
@@ -78,9 +80,10 @@
         </div>       
       </div>
       
+      <!-- login pencari kos -->
       <div id="modallogin" class="modallogin">
         <!-- Modal content -->
-        <div class="modallogin-content">
+        <div class="modallogin-content" >
           <span class="tutup">&times;</span> 
           
           <?php   
@@ -89,11 +92,11 @@
               ?>
           <p id="title-modal-login">
             <h1 class="nama">Login Pencari Kos</h1></p>
-           
+            
             <div id="emw">
               <div id="em" style="display:block"><?php echo htmlspecialchars($rr, ENT_QUOTES, 'UTF-8'); ?></div>
             </div>
-            <form method="POST" action="">
+            <form method="POST" action="" onsubmit="return validateForm()">
           <div class="input">
             <label for="phone" id="telpon">Nomor Handphone:</label><br>
             <input type="text" id="phone" name="phone" style="font-size: 15px; padding-left:10px; padding-left:10px;"><br>
@@ -115,7 +118,47 @@
           </form>          
         </div>       
       </div>
-      
+
+    <!-- login pemilik kos -->
+    <div id="modallogin2" class="modallogin2" >
+        <!-- Modal content -->
+        <div class="modallogin2-content">
+          <span class="tutup2">&times;</span> 
+          
+          <?php   
+              include('../validationDB/action.php');
+              $rr = isset($_SESSION['rr']) ? $_SESSION['rr'] : '';
+              ?>
+          <p id="title-modal-login">
+            <h1 class="nama">Login Pemilik Kos</h1></p>
+            
+            <div id="emw">
+              <div id="em" style="display:block"><?php echo htmlspecialchars($rr, ENT_QUOTES, 'UTF-8'); ?></div>
+            </div>
+            <form method="POST" action="" onsubmit="return validateForm()">
+          <div class="input">
+            <label for="phone" id="telpon">Nomor Handphone:</label><br>
+            <input type="text" id="phone" name="phone" style="font-size: 15px; padding-left:10px; padding-left:10px;"><br>
+            <div id="p-message2" style="color:red; font-family:'Lato', sans-serif; font-size:inherit; margin-bottom:10px;"></div>
+          </div>
+          <div class="input">
+            <label for="pwd" id="password">Password:</label><br>
+            <input type="password" id="pwd" name="pwd" style="font-size: 15px; padding-left:10px; padding-left:10px;"><br>
+            <div id="pwd2" style="color:red; font-family:'Lato', sans-serif; font-size:inherit; margin-bottom:30px;"></div>
+          </div>
+            <div class="login-btn-container">
+              <button type="submit"value ="Login"id="button-login" disabled="disabled">Login</button>
+              <br>
+              <br>
+            </div>  
+            <p>Belum punya akun Kostify? 
+              <a href="buatAkun.php" class="register-e">Daftar sekarang</a></p>
+            
+          </form>          
+        </div>       
+      </div>
+    <!-- login penyewa -->
+    <!-- template header -->  
       
     <div class ="wrapper">
         <h1>Frequently Asked<span class="spn"> Questions</span></h1>

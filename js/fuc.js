@@ -129,13 +129,14 @@ var modal2 = document.getElementById("modallogin");
     modal.style.display = "none";
   }
 
-$(document).ready(function(){
-  var error = "<?php echo $rr; ?>"; // get the error message from PHP
-  if (error) {
-    console.log(error)
-      $('#modallogin').show(); // show the modal if there is an error
-  }
-});
+  $(document).ready(function(){
+    var error = "<?php echo $_SESSION['rr']; ?>"; // get the error message from PHP
+    if (error ) {
+      console.log(error)
+      $('#modallogin-content').show(); // show the modal if there is an error
+      unset($_SESSION['rr']);  // unset the session variable
+    }
+  });
 
 // Get the modal
 var modallogin = document.getElementById("modallogin");
@@ -156,6 +157,51 @@ window.onclick = function(event) {
     modal.style.display = "none";
   } else if (event.target == modallogin) {
     modallogin.style.display = "none";
+  }
+};
+
+
+
+var modal3 = document.getElementById("modallogin2");
+
+  function showModal3() {
+    // Display myModal2
+    modal3.style.display = "block";
+    modal.style.display = "none";
+  }
+
+  $(document).ready(function(){
+    var error = "<?php echo $_SESSION['rr']; ?>"; // get the error message from PHP
+    if (error === '' ) {
+      $('#modallogin2-content').style.display = 'none';
+      var k = document.getElementById('gatau');
+      k.innerHTML = 'lu gay';
+    } else {
+      $('#modallogin2-content').style.display = 'block';
+      $('gatau').innerHTML = 'lu  ga gay';
+
+    }
+  });
+
+// Get the modal
+var modallogin3 = document.getElementById("modallogin2");
+
+
+// Get the <span> element that closes the modal
+var tutup2 = document.getElementsByClassName("tutup2")[0];
+
+
+
+// When the user clicks on <span> (x), close the modal
+tutup2.onclick = function() {
+  modallogin3.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  } else if (event.target == modallogin) {
+    modallogin3.style.display = "none";
   }
 };
 

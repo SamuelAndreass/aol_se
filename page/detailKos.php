@@ -41,15 +41,16 @@
 
 
 <body>
-<header>
+  <!-- template header -->
+  <header>
         <div class="logo">
           <a href="menu.php"><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" alt="Logo"></a>
         </div>
         <div class="menu-cta-group"> <!-- Tambahkan kontainer ini -->
           <nav id="navbar">
             <ul>
-              <li class="navbar-"><a href="../page/faq.php">FAQ</a></li>
-              <li class="navbar-"><a href="contact.php">Hubungi Kami</a></li>
+              <li><a href="faq.php">FAQ</a></li>
+              <li><a href="contact.php">Hubungi Kami</a></li>
             </ul>
           </nav>
           <div class="cta-hamburger-group"> <!-- Tambahkan kontainer ini -->
@@ -64,25 +65,44 @@
           </div> <!-- Tutup kontainer yang ditambahkan -->
         </div> <!-- Tutup kontainer yang ditambahkan -->
       </header>
-      
 
+      <!-- modal login menu -->
       <div id="myModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
           <span class="close">&times;</span> 
+          <p id="title-modal-login">Masuk ke 
+            <h1 class="nama">KOSTIFY</h1></p>
+              <div style="margin-bottom:12px;">Saya ingin masuk sebagai</div>   
+              <div class="selection-role">
+              <div class="pencari-kos" id="pencari-kos" onclick="showModal2()">
+                    <img src="../images/login-tenant.svg" alt="" height="65">
+                    <p style="font-size: 16px; font-weight: 700;  line-height: 24px; font-family: Lato, sans-serif;">Pencari kos</p>
+                  </div>
+                  <div class="pemilik" id="pemilik" onclick="showModal3()">
+                    <img src="../images/login-owner.svg" height="65"alt="">
+                    <p style="font-size: 16px; font-weight: 700; line-height: 24px; font-family: Lato, sans-serif;">Pemilik kos</p>
+                  </div>
+              </div>
+        </div>       
+      </div>
+      
+      <!-- login pencari kos -->
+      <div id="modallogin" class="modallogin">
+        <!-- Modal content -->
+        <div class="modallogin-content" >
+          <span class="tutup">&times;</span> 
           
           <?php   
-              session_start();
               include('../validationDB/action.php');
               $rr = isset($_SESSION['rr']) ? $_SESSION['rr'] : '';
               ?>
-          <p id="title-modal-login">Masuk ke 
-            <h1 class="nama">KOSTIFY</h1></p>
-           
+          <p id="title-modal-login">
+            <h1 class="nama">Login Pencari Kos</h1></p>
             <div id="emw">
-              <div id="em"><?php echo htmlspecialchars($rr, ENT_QUOTES, 'UTF-8'); ?></div>
+              <div id="em" style="display:block"><?php echo htmlspecialchars($rr, ENT_QUOTES, 'UTF-8'); ?></div>
             </div>
-          <form method="POST" action="">
+            <form method="POST" action="">
           <div class="input">
             <label for="phone" id="telpon">Nomor Handphone:</label><br>
             <input type="text" id="phone" name="phone" style="font-size: 15px; padding-left:10px; padding-left:10px;"><br>
@@ -101,10 +121,49 @@
             <p>Belum punya akun Kostify? 
               <a href="buatAkun.php" class="register-e">Daftar sekarang</a></p>
             
-          </form>         
+          </form>          
         </div>       
       </div>
-      <!-- template header -->
+
+    <!-- login pemilik kos -->
+    <div id="modallogin2" class="modallogin2" >
+        <!-- Modal content -->
+        <div class="modallogin2-content">
+          <span class="tutup2">&times;</span> 
+          
+          <?php   
+              include('../validationDB/action.php');
+              $rr = isset($_SESSION['rr']) ? $_SESSION['rr'] : '';
+              ?>
+          <p id="title-modal-login">
+            <h1 class="nama">Login Pemilik Kos</h1></p>
+            <div id="emw">
+              <div id="em" style="display:block"><?php echo htmlspecialchars($rr, ENT_QUOTES, 'UTF-8'); ?></div>
+            </div>
+            <form method="POST" action="">
+          <div class="input">
+            <label for="phone" id="telpon">Nomor Handphone:</label><br>
+            <input type="text" id="phone" name="phone" style="font-size: 15px; padding-left:10px; padding-left:10px;"><br>
+            <div id="p-message2" style="color:red; font-family:'Lato', sans-serif; font-size:inherit; margin-bottom:10px;"></div>
+          </div>
+          <div class="input">
+            <label for="pwd" id="password">Password:</label><br>
+            <input type="password" id="pwd" name="pwd" style="font-size: 15px; padding-left:10px; padding-left:10px;"><br>
+            <div id="pwd2" style="color:red; font-family:'Lato', sans-serif; font-size:inherit; margin-bottom:30px;"></div>
+          </div>
+            <div class="login-btn-container">
+              <button type="submit"value ="Login"id="button-login" disabled="disabled">Login</button>
+              <br>
+              <br>
+            </div>  
+            <p>Belum punya akun Kostify? 
+              <a href="buatAkun.php" class="register-e">Daftar sekarang</a></p>
+            
+          </form>          
+        </div>       
+      </div>
+    <!-- login penyewa -->
+    <!-- template header --> 
 <!-- Header Starts -->
 
 

@@ -24,10 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($pwd === $user['userPassword']) {
             // The password is correct. Authenticate the user.
             $_SESSION['user'] = $user;
+            
             echo '<script>
             alert("berhasil login");
             window.location.href = "../page/menu.php";
-            </script>';;
+            </script>';
+            $error = false;
           } else {
               // The password is incorrect. Show an error message.
               $_SESSION['rr'] = 'Password atau nomor handphone tidak sesuai';
@@ -47,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   display: block;
               }
           </style>';
+          $error = true;
           }
       } else {
         $_SESSION['rr'] = 'Password atau nomor handphone tidak sesuai';
@@ -65,8 +68,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background-color: #ffebe9;
         }
     </style>';
+    $error = true;
+    header('Content-Type: application/json');
+      echo json_encode(['error' => $error]);
       }
-
+      
     // Close the connection
     $con->close();
 }

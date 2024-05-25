@@ -83,7 +83,7 @@ include("config.php");
       }
     } else{
 ?>
-   <h1 class="login-title">Daftar Akun</h1>
+   <h1 class="login-title" style="font-size:20px;">Daftar Akun Pemilik Kos</h1>
     <form action="" method="POST" class="registration-form">
       <div class="input-n1">
         <div class="label-cover1">

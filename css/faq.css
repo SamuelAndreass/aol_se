@@ -219,6 +219,21 @@ body {
     background-color: rgba(0,0,0,0.4); /* Warna latar belakang dengan sedikit transparansi */
   }
 
+  .modallogin2 {
+    
+    display: none; /* Modal awalnya tersembunyi */
+    position: fixed; /* Tetap berada di tempat saat di-scroll */
+    z-index: 1; /* Berada di atas semua konten lain */
+    left: 0;
+    top: 0;
+    width: 100%; /* Lebar penuh */
+    height: 100%; /* Tinggi penuh */
+    overflow: auto; /* Memungkinkan scroll jika diperlukan */
+    background-color: rgb(0,0,0); /* Warna latar belakang */
+    background-color: rgba(0,0,0,0.4); /* Warna latar belakang dengan sedikit transparansi */
+  }
+
+
 .modal-content .nama{
   color: var(--primary);
   margin-bottom: 20px;
@@ -237,6 +252,22 @@ body {
   margin-bottom: 20px;
 }
 .modallogin-content {
+
+  border-radius: 0.25rem;
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% dari atas dan ditengah */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 25%; /* Lebar modal */
+}
+
+
+.modallogin2-content .nama{
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+.modallogin2-content {
+
   border-radius: 0.25rem;
   background-color: #fefefe;
   margin: 15% auto; /* 15% dari atas dan ditengah */
@@ -303,7 +334,20 @@ body {
   cursor: pointer;
 }
  
-  
+.tutup2{
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.tutup2:hover,
+.tutup2:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .diskon {
   font-family: 'Lato', sans-serif;
 }
@@ -545,6 +589,7 @@ height: 40px; /* Adjust the height */
   display: flex;
   padding: 16px;
 }
+
 
 
 @media screen and (max-width: 1190px) {
