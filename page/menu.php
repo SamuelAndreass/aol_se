@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
@@ -68,25 +68,26 @@
           <span class="close">&times;</span> 
           
           <?php   
-              session_start();
               include('../validationDB/action.php');
               $rr = isset($_SESSION['rr']) ? $_SESSION['rr'] : '';
               ?>
           <p id="title-modal-login">Masuk ke 
             <h1 class="nama">KOSTIFY</h1></p>
-            <div class="error-message-wrapper">
-              <div class="error-message"><?php echo htmlspecialchars($rr, ENT_QUOTES, 'UTF-8'); ?></div>
+           
+
+            <div id="emw">
+              <div id="em" style="display:block"><?php echo htmlspecialchars($rr, ENT_QUOTES, 'UTF-8'); ?></div>
             </div>
-          <form method="POST" action="">
+            <form method="POST" action="">
           <div class="input">
             <label for="phone" id="telpon">Nomor Handphone:</label><br>
-            <input type="text" id="phone" name="phone"><br>
-            <div id="p-message2" style="color:red; font-family:'Lato', sans-serif; font-size:12px; margin-bottom:10px;"></div>
+            <input type="text" id="phone" name="phone" style="font-size: 15px; padding-left:10px; padding-left:10px;"><br>
+            <div id="p-message2" style="color:red; font-family:'Lato', sans-serif; font-size:inherit; margin-bottom:10px;"></div>
           </div>
           <div class="input">
             <label for="pwd" id="password">Password:</label><br>
-            <input type="password" id="pwd" name="pwd"><br>
-            <div id="pwd2" style="color:red; font-family:'Lato', sans-serif; font-size:12px; margin-bottom:10px;"></div>
+            <input type="password" id="pwd" name="pwd" style="font-size: 15px; padding-left:10px; padding-left:10px;"><br>
+            <div id="pwd2" style="color:red; font-family:'Lato', sans-serif; font-size:inherit; margin-bottom:30px;"></div>
           </div>
             <div class="login-btn-container">
               <button type="submit"value ="Login"id="button-login" disabled="disabled">Login</button>
@@ -96,7 +97,7 @@
             <p>Belum punya akun Kostify? 
               <a href="buatAkun.php" class="register-e">Daftar sekarang</a></p>
             
-          </form>         
+          </form>          
         </div>       
       </div>
       <!-- template header -->

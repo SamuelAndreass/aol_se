@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Realestate Bootstrap Theme </title>
+<title>Kostify</title>
 <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -10,7 +10,17 @@
   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="../assets/bootstrap/js/bootstrap.js"></script>
   <script src="../assets/script.js"></script>
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 <!-- Icon -->
 
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
@@ -57,26 +67,31 @@
       
 
       <div id="myModal" class="modal">
-     
         <!-- Modal content -->
         <div class="modal-content">
-        <?php include('../validationDB/action.php')?>;  
           <span class="close">&times;</span> 
           
-          <p class="error-message"></p>
-          <p id="title-modal-login" style="margin-bottom: 3px;">Masuk ke 
-            <h1 class="nama" style="margin-left: 5px;">KOSTIFY</h1></p>
-    
+          <?php   
+              session_start();
+              include('../validationDB/action.php');
+              $rr = isset($_SESSION['rr']) ? $_SESSION['rr'] : '';
+              ?>
+          <p id="title-modal-login">Masuk ke 
+            <h1 class="nama">KOSTIFY</h1></p>
+           
+            <div id="emw">
+              <div id="em"><?php echo htmlspecialchars($rr, ENT_QUOTES, 'UTF-8'); ?></div>
+            </div>
           <form method="POST" action="">
           <div class="input">
             <label for="phone" id="telpon">Nomor Handphone:</label><br>
-            <input type="text" id="phone" name="phone"><br>
-            <div id="p-message2" style="margin-bottom:20px;color:red; font-family:'Lato', sans-serif; font-size:12px"></div>
+            <input type="text" id="phone" name="phone" style="font-size: 15px; padding-left:10px; padding-left:10px;"><br>
+            <div id="p-message2" style="color:red; font-family:'Lato', sans-serif; font-size:inherit; margin-bottom:10px;"></div>
           </div>
           <div class="input">
             <label for="pwd" id="password">Password:</label><br>
-            <input type="password" id="pwd" name="pwd"><br>
-            <div style="color:red;font-size:12px;font-family:'Lato', sans-serif; margin-bottom:20px;" id="pwd2"></div>
+            <input type="password" id="pwd" name="pwd" style="font-size: 15px; padding-left:10px; padding-left:10px;"><br>
+            <div id="pwd2" style="color:red; font-family:'Lato', sans-serif; font-size:inherit; margin-bottom:30px;"></div>
           </div>
             <div class="login-btn-container">
               <button type="submit"value ="Login"id="button-login" disabled="disabled">Login</button>
@@ -85,34 +100,9 @@
             </div>  
             <p>Belum punya akun Kostify? 
               <a href="buatAkun.php" class="register-e">Daftar sekarang</a></p>
-              
-          </form>
-          
-          <script>
-          $(document).ready(function(){
-            $("form").on("submit", function(event){
-              
-
-              $.ajax({
-                url: '../validationDB/action.php', // Change this to the path of your PHP script
-                type: 'post',
-                data: $(this).serialize(),
-                success: function(response){
-              var data = JSON.parse(response);
-              if (data.status === 'success') {
-                  window.location.href = 'buatAkun.php';
-              } else {
-                  // Select the modal element and display the error message
-                  $('.modal-content').append('<p>' + data.message + '</p>');
-              }
-          }
-
-              });
-            });
-          });
-</script>
-        </div>
-       
+            
+          </form>         
+        </div>       
       </div>
       <!-- template header -->
 <!-- Header Starts -->

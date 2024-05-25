@@ -1,7 +1,7 @@
 <?php
 include("../page/config.php");
 // Start the session
-$rr = '';
+$rr=  '';
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param('s', $phone);
     $stmt->execute();
     $result = $stmt->get_result();
-
+    
     // Check if the user exists and the password is correct
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
@@ -31,13 +31,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           } else {
               // The password is incorrect. Show an error message.
               $_SESSION['rr'] = 'Password atau nomor handphone tidak sesuai';
-              
+              echo '<style>
+              #em {
+                  color: black;
+                  font-size: 13px;
+                  padding: 15px;
+                  display: block;
+              }
+              #emw {
+                  
+                  border-color: #ff818266;
+                  margin-bottom: 20px;
+                  border-radius: 6px;
+                  background-color: #ffebe9;
+                  display: block;
+              }
+          </style>';
           }
       } else {
         $_SESSION['rr'] = 'Password atau nomor handphone tidak sesuai';
+        echo '<style>
+        #em {
+            color: black;
+            font-size: 13px;
+            padding: 15px;
+            display: block;
+        }
+        #emw {
+            display: block;
+            border-color: #ff818266;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            background-color: #ffebe9;
+        }
+    </style>';
       }
 
     // Close the connection
     $con->close();
 }
 ?>
+

@@ -121,20 +121,41 @@ inputs.forEach(function(input) {
   });
 });
 
+var modal2 = document.getElementById("modallogin");
+
+  function showModal2() {
+    // Display myModal2
+    modal2.style.display = "block";
+    modal.style.display = "none";
+  }
 
 $(document).ready(function(){
   var error = "<?php echo $rr; ?>"; // get the error message from PHP
   if (error) {
     console.log(error)
-      $('#myModal').show(); // show the modal if there is an error
+      $('#modallogin').show(); // show the modal if there is an error
   }
 });
 
+// Get the modal
+var modallogin = document.getElementById("modallogin");
+
+
+// Get the <span> element that closes the modal
+var tutup = document.getElementsByClassName("tutup")[0];
 
 
 
+// When the user clicks on <span> (x), close the modal
+tutup.onclick = function() {
+  modallogin.style.display = "none";
+}
 
-
-
-
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  } else if (event.target == modallogin) {
+    modallogin.style.display = "none";
+  }
+};
 

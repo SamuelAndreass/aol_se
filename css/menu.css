@@ -25,8 +25,8 @@ body {
     align-items: center;
     background-color: white;
     border-bottom: 1px solid rgb(216, 211, 211); /* Tambahkan ini */
-    padding: 1rem;
-    margin-right: 20px;
+    padding: 10px;
+   
   }
   
 
@@ -80,12 +80,13 @@ body {
   .menu-cta-group {
     display: flex;
     align-items: center;
+    margin-right: 2rem;
   }
   
   /* CSS */
 .modal {
   
-  display: none; /* Modal awalnya tersembunyi */
+  display: block; /* Modal awalnya tersembunyi */
   position: fixed; /* Tetap berada di tempat saat di-scroll */
   z-index: 1; /* Berada di atas semua konten lain */
   left: 0;
@@ -96,6 +97,21 @@ body {
   background-color: rgb(0,0,0); /* Warna latar belakang */
   background-color: rgba(0,0,0,0.4); /* Warna latar belakang dengan sedikit transparansi */
 }
+
+.modal2 {
+  
+  display: block; /* Modal awalnya tersembunyi */
+  position: fixed; /* Tetap berada di tempat saat di-scroll */
+  z-index: 1; /* Berada di atas semua konten lain */
+  left: 0;
+  top: 0;
+  width: 100%; /* Lebar penuh */
+  height: 100%; /* Tinggi penuh */
+  overflow: auto; /* Memungkinkan scroll jika diperlukan */
+  background-color: rgb(0,0,0); /* Warna latar belakang */
+  background-color: rgba(0,0,0,0.4); /* Warna latar belakang dengan sedikit transparansi */
+}
+
 .modal-content .nama{
   color: var(--primary);
   margin-bottom: 20px;
@@ -331,18 +347,8 @@ body {
     }
 }
 
-.error-message{
-  color: black;
-  size: 10px;
-  padding: 15px;
-  
-}
+/* Di dalam file CSS Anda */
 
-.error-message-wrapper{
-  border-color: #ff818266;
-  margin-bottom: 20px;
-  border-radius: 6px;
-  background-color: #ffebe9;
-}
+
 
 
