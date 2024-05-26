@@ -133,8 +133,6 @@
                             // Show the error message
                             $('#em').text('Password atau nomor handphone tidak sesuai');
                             $('#emw').show();
-                            $('#phone').val('');
-                            $('#pwd').val('');
                         } else {
                             // Redirect to the menu page
                             window.location.href = "../page/menu.php";
@@ -200,8 +198,6 @@
                             // Show the error message
                             $('#em1').text('Password atau nomor handphone tidak sesuai');
                             $('#emw1').show();
-                            $('#phone3').val('');
-                            $('#pwd3').val('');
                         } else {
                             // Redirect to the menu page
                             alert("login berhasil dilakukan");

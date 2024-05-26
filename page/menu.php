@@ -137,8 +137,6 @@
                             // Show the error message
                             $('#em').text('Password atau nomor handphone tidak sesuai');
                             $('#emw').show();
-                            $('#phone').val('');
-                            $('#pwd').val('');
                         } else {
                             // Redirect to the menu page
                             window.location.href = "../page/menu.php";
