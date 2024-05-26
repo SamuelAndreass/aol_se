@@ -296,6 +296,20 @@ body {
     text-align: center;
 }
 
+#button-login3{
+  display: block;
+  background-color: transparent;
+    color: #4CAF50;
+    padding: 0.5rem 1rem;
+    padding-left: 10px;
+    width: 100%;
+    padding-right: 10px;
+  
+    border-radius: 0.25rem;
+    margin: auto;
+    text-align: center;
+}
+
 .login-w{
   text-align: center;
 }
@@ -514,6 +528,16 @@ padding-bottom: 2px;
 font-family: "Lato", sans-serif;
 } 
 
+#phone3{
+  width: 100%;
+  margin-top: 20px;
+  border-bottom: 1px solid black;
+  margin-left: auto;
+  margin-right:auto;
+  padding-bottom: 2px;
+  font-family: "Lato", sans-serif;
+  } 
+
 #pwd{
 width: 100%;
 margin-top: 20px;
@@ -522,6 +546,15 @@ padding-bottom: 2px;
 margin-left: auto;
 margin-right: auto;
 }
+
+#pwd3{
+  width: 100%;
+  margin-top: 20px;
+  border-bottom: 1px solid black;
+  padding-bottom: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  }
 /* The Close Button */
 
 
@@ -590,7 +623,35 @@ height: 40px; /* Adjust the height */
   padding: 16px;
 }
 
+#em {
+  color: black;
+  font-size: 13px;
+  padding: 15px;
+  display: none;
+}
+#emw {
+  
+  border-color: #ff818266;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  background-color: #ffebe9;
+  display: none;
+}
 
+#em1 {
+  color: black;
+  font-size: 13px;
+  padding: 15px;
+  display: none;
+}
+#emw1 {
+  
+  border-color: #ff818266;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  background-color: #ffebe9;
+  display: none;
+}
 
 @media screen and (max-width: 1190px) {
   #navbar {
