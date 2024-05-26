@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 
 *{
     padding: 0;
@@ -588,6 +588,231 @@ height: 40px; /* Adjust the height */
   cursor: pointer;
   display: flex;
   padding: 16px;
+}
+
+#em1 {
+  color: black;
+  font-size: 13px;
+  padding: 15px;
+  display: none;
+}
+#emw1 {
+  
+  border-color: #ff818266;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  background-color: #ffebe9;
+  display: none;
+}
+
+#em {
+  color: black;
+  font-size: 13px;
+  padding: 15px;
+  display: none;
+}
+#emw {
+  
+  border-color: #ff818266;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  background-color: #ffebe9;
+  display: none;
+}
+
+
+#phone{
+width: 100%;
+margin-top: 20px;
+border-bottom: 1px solid black;
+margin-left: auto;
+margin-right:auto;
+padding-bottom: 2px;
+font-family: "Lato", sans-serif;
+} 
+
+#phone3{
+  width: 100%;
+  margin-top: 20px;
+  border-bottom: 1px solid black;
+  margin-left: auto;
+  margin-right:auto;
+  padding-bottom: 2px;
+  font-family: "Lato", sans-serif;
+  } 
+
+#pwd{
+width: 100%;
+margin-top: 20px;
+border-bottom: 1px solid black;
+padding-bottom: 2px;
+margin-left: auto;
+margin-right: auto;
+}
+
+#pwd3{
+  width: 100%;
+  margin-top: 20px;
+  border-bottom: 1px solid black;
+  padding-bottom: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+.modal {
+  
+  display: none; /* Modal awalnya tersembunyi */
+  position: fixed; /* Tetap berada di tempat saat di-scroll */
+  z-index: 1; /* Berada di atas semua konten lain */
+  left: 0;
+  top: 0;
+  width: 100%; /* Lebar penuh */
+  height: 100%; /* Tinggi penuh */
+  overflow: auto; /* Memungkinkan scroll jika diperlukan */
+  background-color: rgb(0,0,0); /* Warna latar belakang */
+  background-color: rgba(0,0,0,0.4); /* Warna latar belakang dengan sedikit transparansi */
+}
+
+  .modallogin {
+    
+    display: none; /* Modal awalnya tersembunyi */
+    position: fixed; /* Tetap berada di tempat saat di-scroll */
+    z-index: 1; /* Berada di atas semua konten lain */
+    left: 0;
+    top: 0;
+    width: 100%; /* Lebar penuh */
+    height: 100%; /* Tinggi penuh */
+    overflow: auto; /* Memungkinkan scroll jika diperlukan */
+    background-color: rgb(0,0,0); /* Warna latar belakang */
+    background-color: rgba(0,0,0,0.4); /* Warna latar belakang dengan sedikit transparansi */
+  }
+
+  .modallogin2 {
+    
+    display: none; /* Modal awalnya tersembunyi */
+    position: fixed; /* Tetap berada di tempat saat di-scroll */
+    z-index: 1; /* Berada di atas semua konten lain */
+    left: 0;
+    top: 0;
+    width: 100%; /* Lebar penuh */
+    height: 100%; /* Tinggi penuh */
+    overflow: auto; /* Memungkinkan scroll jika diperlukan */
+    background-color: rgb(0,0,0); /* Warna latar belakang */
+    background-color: rgba(0,0,0,0.4); /* Warna latar belakang dengan sedikit transparansi */
+  }
+
+
+.modal-content .nama{
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+.modal-content {
+  border-radius: 20px;
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% dari atas dan ditengah */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 25%; /* Lebar modal */
+}
+
+.modallogin-content .nama{
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+.modallogin-content {
+
+  border-radius: 0.25rem;
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% dari atas dan ditengah */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 25%; /* Lebar modal */
+}
+
+
+.modallogin2-content .nama{
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+.modallogin2-content {
+
+  border-radius: 0.25rem;
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% dari atas dan ditengah */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 25%; /* Lebar modal */
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tutup{
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.tutup:hover,
+.tutup:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+ 
+.tutup2{
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.tutup2:hover,
+.tutup2:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#button-login{
+  display: block;
+  background-color: transparent;
+    color: #4CAF50;
+    padding: 0.5rem 1rem;
+    padding-left: 10px;
+    width: 100%;
+    padding-right: 10px;
+  
+    border-radius: 0.25rem;
+    margin: auto;
+    text-align: center;
+}
+
+#button-login3{
+  display: block;
+  background-color: transparent;
+    color: #4CAF50;
+    padding: 0.5rem 1rem;
+    padding-left: 10px;
+    width: 100%;
+    padding-right: 10px;
+  
+    border-radius: 0.25rem;
+    margin: auto;
+    text-align: center;
 }
 
 

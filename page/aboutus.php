@@ -1,14 +1,10 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOSTIFY</title>
-
- <!-- css -->
-  <link rel="stylesheet" type="text/css"href="../css/faq.css">
-  <!-- box icons -->
+    <link rel="stylesheet" type="text/css" href="../css/aboutUS.css">
+      <!-- box icons -->
   <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="dist/hamburgers.css" rel="stylesheet">
@@ -29,12 +25,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title></title>
 </head>
-
-
 <body>
-  <!-- template header -->
-    <header>
+       <!-- template header -->
+   <header>
         <div class="logo">
           <a href="menu.php"><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" alt="Logo"></a>
         </div>
@@ -133,8 +128,7 @@
                             // Show the error message
                             $('#em').text('Password atau nomor handphone tidak sesuai');
                             $('#emw').show();
-                            $('#phone').val('');
-                            $('#pwd').val('');
+                           
                         } else {
                             // Redirect to the menu page
                             window.location.href = "../page/menu.php";
@@ -200,8 +194,6 @@
                             // Show the error message
                             $('#em1').text('Password atau nomor handphone tidak sesuai');
                             $('#emw1').show();
-                            $('#phone3').val('');
-                            $('#pwd3').val('');
                         } else {
                             // Redirect to the menu page
                             alert("login berhasil dilakukan");
@@ -216,82 +208,20 @@
         </div>       
       </div>
     <!-- login penyewa -->
-    <!-- template header -->  
-      
-    <div class ="wrapper">
-        <h1>Frequently Asked<span class="spn"> Questions</span></h1>
-
-        <div class ="faq active">
-            <button class="accordion">
-                Apa itu Kostify?
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="pannel">
-                <p>
-                Kostify adalah platform daring yang dirancang khusus untuk membantu Anda menemukan kost yang sesuai dengan kebutuhan dan preferensi Anda. Kami menyediakan berbagai informasi tentang kost yang tersedia, termasuk lokasi, fasilitas, harga, dan lainnya, sehingga Anda dapat dengan mudah menemukan tempat tinggal yang cocok.
-                </p>
-            </div>
-        </div>
-        <div class ="faq active">
-            <button class="accordion">
-            Apakah Kostify memberikan informasi tentang fasilitas yang tersedia di kost??
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="pannel">
-                <p>
-                Tentu saja. Kostify menyediakan informasi lengkap tentang fasilitas yang tersedia di setiap kost, termasuk fasilitas seperti kamar mandi dalam, akses internet, parkir, dapur bersama, dan banyak lagi. Ini membantu Anda untuk menemukan kost yang sesuai dengan preferensi dan kebutuhan Anda.
-            </div>
-        </div>
-        <div class ="faq active">
-            <button class="accordion">
-            Bagaimana cara saya menghubungi pemilik kost yang terdaftar di Kostify?
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="pannel">
-                <p>
-                Setelah Anda menemukan kost yang sesuai dengan keinginan Anda, Anda dapat menghubungi pemilik kost langsung melalui informasi kontak yang tersedia di halaman detail kost. 
-                </p>
-            </div>
-        </div>
-        <div class ="faq active">
-            <button class="accordion">
-            Bagaimana cara menggunakan Kostify?
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="pannel">
-                <p>
-                </p>
-            </div>
-        </div>
-        <div class ="faq active">
-            <button class="accordion">
-            Bagaimana Kostify menjaga keamanan data pengguna?
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="pannel">
-                <p>
-                Kami mengambil keamanan data pengguna dengan serius di Kostify. Kami menerapkan langkah-langkah keamanan teknis dan prosedural yang ketat untuk melindungi informasi pribadi pengguna kami.                 </p>
-            </div>
-        </div>
+    <!-- template header -->
+    <section class="about-us">
+    <div class="about">
+      <img src="../asset/about image.jpg" alt="" class="pic">
+      <div class="text">
+        <h2>About <span style="color:#2BD232;">Us</span></h2>
+        <h5 style="margin-top:30px;">Penyedia informasi <span style="color:#2BD232;">Kos-Kosan</span> terbaik</h5>
+          <p style="text-align:justify;">Kostify adalah platform terdepan dalam menyediakan informasi kost terbaik. Kami percaya bahwa mencari tempat tinggal yang nyaman dan terjangkau tidak harus menjadi proses yang sulit dan membingungkan. Itulah sebabnya kami berdedikasi untuk membuat proses tersebut menjadi mudah dan menyenangkan. Di Kostify, kami mengumpulkan dan menyediakan informasi kost terlengkap dan terpercaya. Dengan berbagai pilihan kost di berbagai lokasi, kami membantu Anda menemukan tempat tinggal yang paling sesuai dengan kebutuhan dan anggaran Anda.Bergabunglah dengan ribuan pengguna lainnya yang telah menemukan tempat tinggal mereka melalui Kostify. Selamat mencari kost, dan selamat tinggal di rumah baru Anda!  </p>
+        
+      </div>
     </div>
-   
-</body>
-<script src="../js/fuc.js"></script>
-<script>var acc = document.getElementsByClassName("accordion");
-var i;
-for(i = 0; i < acc.length ; i++){
-    acc[i].addEventListener("click",function(){
-        this.classList.toggle("active");
-        this.parentElement.classList.toggle("active");
-        var pannel =this.nextElementSibling;
-        if(pannel.style.display === "block"){
-            pannel.style.display = "none";
-        }else{
-            pannel.style.display = "block";
-        }
-    });
-}
+  </section>
+        
 
-</script>
- 
+    <script src="../js/aboutus.js"></script>
+</body>
 </html>

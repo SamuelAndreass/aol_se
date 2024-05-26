@@ -41,16 +41,16 @@
 
 
 <body>
-  <!-- template header -->
-  <header>
+   <!-- template header -->
+   <header>
         <div class="logo">
           <a href="menu.php"><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" alt="Logo"></a>
         </div>
         <div class="menu-cta-group"> <!-- Tambahkan kontainer ini -->
           <nav id="navbar">
             <ul>
-              <li><a href="faq.php">FAQ</a></li>
-              <li><a href="contact.php">Hubungi Kami</a></li>
+            <li><a href="faq.php">FAQ</a></li>
+              <li><a href="aboutUS.php">Tentang Kami</a></li>
             </ul>
           </nav>
           <div class="cta-hamburger-group"> <!-- Tambahkan kontainer ini -->
@@ -71,6 +71,7 @@
         <!-- Modal content -->
         <div class="modal-content">
           <span class="close">&times;</span> 
+          <div id="gatau"></div>
           <p id="title-modal-login">Masuk ke 
             <h1 class="nama">KOSTIFY</h1></p>
               <div style="margin-bottom:12px;">Saya ingin masuk sebagai</div>   
@@ -99,10 +100,11 @@
               ?>
           <p id="title-modal-login">
             <h1 class="nama">Login Pencari Kos</h1></p>
+            
             <div id="emw">
               <div id="em" style="display:block"><?php echo htmlspecialchars($rr, ENT_QUOTES, 'UTF-8'); ?></div>
             </div>
-            <form method="POST" action="">
+            <form method="POST" action="" onsubmit="return validateForm()">
           <div class="input">
             <label for="phone" id="telpon">Nomor Handphone:</label><br>
             <input type="text" id="phone" name="phone" style="font-size: 15px; padding-left:10px; padding-left:10px;"><br>
@@ -121,7 +123,36 @@
             <p>Belum punya akun Kostify? 
               <a href="buatAkun.php" class="register-e">Daftar sekarang</a></p>
             
-          </form>          
+          </form>
+          <script>
+            $(document).ready(function() {
+            $('form').on('submit', function(e) {
+            e.preventDefault();
+                // Get the form data
+                var formData = $(this).serialize();
+                // Send the data using post
+                $.ajax({
+                    type: 'POST',
+                    url: '../validationDB/action2.php',
+                    data: formData,
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.error) {
+                            // Show the error message
+                            $('#em').text('Password atau nomor handphone tidak sesuai');
+                            $('#emw').show();
+                            $('#phone').val('');
+                            $('#pwd').val('');
+                        } else {
+                            // Redirect to the menu page
+                            window.location.href = "../page/menu.php";
+                        }
+                    }
+                });
+            });
+        });
+
+          </script>          
         </div>       
       </div>
 
@@ -137,29 +168,57 @@
               ?>
           <p id="title-modal-login">
             <h1 class="nama">Login Pemilik Kos</h1></p>
-            <div id="emw">
-              <div id="em" style="display:block"><?php echo htmlspecialchars($rr, ENT_QUOTES, 'UTF-8'); ?></div>
+            
+            <div id="emw1">
+              <div id="em1" style="display:block"><?php echo htmlspecialchars($rr, ENT_QUOTES, 'UTF-8'); ?></div>
             </div>
-            <form method="POST" action="">
+            <form method="POST" action="" onsubmit="return validateForm()">
           <div class="input">
             <label for="phone" id="telpon">Nomor Handphone:</label><br>
-            <input type="text" id="phone" name="phone" style="font-size: 15px; padding-left:10px; padding-left:10px;"><br>
-            <div id="p-message2" style="color:red; font-family:'Lato', sans-serif; font-size:inherit; margin-bottom:10px;"></div>
+            <input type="text" id="phone3" name="phone" style="font-size: 15px; padding-left:10px; padding-left:10px;"><br>
+            <div id="p-message3" style="color:red; font-family:'Lato', sans-serif; font-size:inherit; margin-bottom:10px;"></div>
           </div>
           <div class="input">
-            <label for="pwd" id="password">Password:</label><br>
-            <input type="password" id="pwd" name="pwd" style="font-size: 15px; padding-left:10px; padding-left:10px;"><br>
-            <div id="pwd2" style="color:red; font-family:'Lato', sans-serif; font-size:inherit; margin-bottom:30px;"></div>
+            <label for="pwd" id="password3">Password:</label><br>
+            <input type="password" id="pwd3" name="pwd" style="font-size: 15px; padding-left:10px; padding-left:10px;"><br>
+            <div id="pwd4" style="color:red; font-family:'Lato', sans-serif; font-size:inherit; margin-bottom:30px;"></div>
           </div>
             <div class="login-btn-container">
-              <button type="submit"value ="Login"id="button-login" disabled="disabled">Login</button>
+              <button type="submit"value ="Login"id="button-login3" disabled="disabled">Login</button>
               <br>
               <br>
             </div>  
             <p>Belum punya akun Kostify? 
               <a href="buatAkun.php" class="register-e">Daftar sekarang</a></p>
-            
-          </form>          
+          </form>  
+          <script>
+            $(document).ready(function() {
+            $('form').on('submit', function(e) {
+            e.preventDefault();
+                // Get the form data
+                var formData = $(this).serialize();
+                // Send the data using post
+                $.ajax({
+                    type: 'POST',
+                    url: '../validationDB/action.php',
+                    data: formData,
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.error) {
+                            // Show the error message
+                            $('#em1').text('Password atau nomor handphone tidak sesuai');
+                            $('#emw1').show();
+                        } else {
+                            // Redirect to the menu page
+                            alert("login berhasil dilakukan");
+                            window.location.href = "../afterLogin/menu.php";
+                        }
+                    }
+                });
+            });
+        });
+
+          </script>        
         </div>       
       </div>
     <!-- login penyewa -->
