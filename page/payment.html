@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            margin-bottom: 10px;
+        }
+        .section div {
+            margin-bottom: 5px;
+        }
+        .section label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .section input, .section select {
+            width: calc(100% - 10px);
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        .section .payment-options {
+            display: flex;
+            justify-content: center; /* Center the QR code */
+        }
+        .section .payment-options img {
+            width: 150px; /* Adjust this value to make the QR code smaller */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .section .room-image {
+            width: 100%; /* Default to 100% width */
+            max-width: 200px; /* Limit the maximum width to 200px */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Make sure the image is displayed as a block element */
+            margin: 0 auto; /* Center the image */
+        }
+        .confirm-button {
+            display: flex;
+            justify-content: center;
+        }
+        .confirm-button button {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="section">
+        <h2>Informasi Penyewa</h2>
+        <div>Nama penyewa: <span id="nama-penyewa">Leonardo</span></div>
+        <div>Nomor HP: <span id="nomor-hp">+62 879-6432-903</span></div>
+        <div>Tanggal mulai sewa: <span id="tanggal-sewa">17 - 05 - 2024</span></div>
+        <a href="#" onclick="editInfo()">Ubah</a>
+    </div>
+
+    <div class="section">
+        <h2>Scan Disini</h2>
+        <div class="payment-options">
+            <img src="../images/properties/image.png" alt="QR Code">
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Detail Order</h2>
+        <img src="../images/properties/1.jpg" alt="kamar kost" class="room-image">
+        <div>Kost Coliving Ciputat | Putra</div>
+        <div>WiFi · Kasur · K. Mandi Dalam</div>
+    </div>
+
+    <div class="section">
+        <div>Jumlah Penyewa: <input type="number" id="jumlah-penyewa" name="jumlah-penyewa" value="1" min="1" max="2"></div>
+        <div>Durasi Sewa/bulan: <input type="number" id="durasi-sewa" name="durasi-sewa" value="1" min="1"></div>
+        <div>Biaya sewa kos: Rp1.900.000</div>
+        <div>Biaya layanan: Rp9.500</div>
+    </div>
+
+    <div class="confirm-button">
+        <button onclick="confirmOrder()">CONFIRM</button>
+    </div>
+</div>
+
+<script>
+    function editInfo() {
+        var newName = prompt("Enter new name:");
+        if (newName !== null) {
+            document.getElementById('nama-penyewa').innerText = newName;
+        }
+        var newNumber = prompt("Enter new phone number:");
+        if (newNumber !== null) {
+            document.getElementById('nomor-hp').innerText = newNumber;
+        }
+        var newDate = prompt("Enter new rental start date (DD - MM - YYYY):");
+        if (newDate !== null) {
+            document.getElementById('tanggal-sewa').innerText = newDate;
+        }
+    }
+
+    function confirmOrder() {
+        // Implement your confirmation logic here
+        alert("Berhasil melakukan pembayaran");
+        window.location.href ='menu.php';
+    }
+</script>
+
+</body>
+</html>

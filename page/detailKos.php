@@ -344,10 +344,10 @@
         <span class="original-price">Rp2.225.000</span><br>
       </div>
       <div class="wrapper-texet">
-        <span class="discounted-price">Rp2.071.000</span> <span class="discounted-price-text">(Bulan pertama)</span>
+        <span class="discounted-price" style="text-decoration:none; color: black;">Rp2.071.000</span> <span class="discounted-price-text">(Bulan pertama)</span>
       </div>
       <div class="button-wrapper1">
-        <button class="button-tanya">
+        <button class="button-tanya" onclick="window.location.href='https://wa.me/081818188181'">
         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" style="margin-left:1px;margin-bottom:-1px;text-align: center;margin-right:5px;"   width="12" height="12" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">
             <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
             <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
@@ -357,7 +357,7 @@
          
       </div>
       <div class="button-wrapper2">
-        <button class="button-ajukan">Ajukan Sewa</button>
+        <button class="button-ajukan" onclick="window.location.href='payment.html'">Ajukan Sewa</button>
       </div>
       
     </div>
