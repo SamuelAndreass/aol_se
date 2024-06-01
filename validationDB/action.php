@@ -1,6 +1,7 @@
 <?php
 include("../page/config.php");
 // Start the session
+
 $rr=  '';
 
 // Check if the form is submitted
@@ -23,8 +24,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $result->fetch_assoc();
         if ($pwd === $user['userPassword']) {
             // The password is correct. Authenticate the user.
-            $_SESSION['user'] = $user;
+            $_SESSION['valid'] = $user;
+            $_SESSION['email'] = $user['emailUser'];
+            $_SESSION['nama'] = $user['namaUser'];
+            $_SESSION['phone'] = $user['nomorTelpon'];
+            $_SESSION['id'] = $user['id'];
             echo json_encode(['error' => false]);
+            
           } else {
             $_SESSION['rr'] = 'Password atau nomor handphone tidak sesuai';
             echo json_encode(['error' => true]);

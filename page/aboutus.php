@@ -131,7 +131,8 @@
                            
                         } else {
                             // Redirect to the menu page
-                            window.location.href = "../page/menu.php";
+                            alert("login berhasil dilakukan");
+                            window.location.href = "../afterLogin/menu2.php";
                         }
                     }
                 });
@@ -197,7 +198,7 @@
                         } else {
                             // Redirect to the menu page
                             alert("login berhasil dilakukan");
-                            window.location.href = "../afterLogin/menu.php";
+                            window.location.href = "../afterLogin/menu2.php";
                         }
                     }
                 });

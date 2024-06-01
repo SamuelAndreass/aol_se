@@ -402,26 +402,6 @@ body {
   background-color: #357dea;
 }
 
-:root{
-  --primary: #2BD232;
-  --bg: #ece8e1
-  ;
-}
-*{
-  margin:0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  border: none;
-  text-decoration: none;
-
-}
-
-body {
-  font-family: 'Lato', sans-serif;
-  margin: 0;
-  padding: 0;
-}
 
 header {
   display: flex;

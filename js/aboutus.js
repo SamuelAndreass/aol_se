@@ -131,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var inputElement3 = document.getElementById('phone3'); // Ganti dengan ID input HTML Anda
   var message3 = document.getElementById('p-message3')
 
+  
 
   // Fungsi untuk memeriksa apakah input memenuhi kondisi Anda
   function validateInput2(value) {

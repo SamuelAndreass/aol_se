@@ -1,3 +1,4 @@
+<?php  session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,15 +31,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </head>
 
 
 <body>
-   <!-- template header -->
-   <header>
+  <!-- template header -->
+  <header>
         <div class="logo">
           <a href="menu.php"><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" alt="Logo"></a>
         </div>
@@ -89,14 +89,9 @@
         <!-- Modal content -->
         <div class="modallogin-content" >
           <span class="tutup">&times;</span> 
-          
-          <?php   
-              include('../validationDB/action.php');
-              $rr = isset($_SESSION['rr']) ? $_SESSION['rr'] : '';
-              ?>
           <p id="title-modal-login">
             <h1 class="nama">Login Pencari Kos</h1></p>
-            
+       
             <div id="emw">
               <div id="em" style="display:block"><?php echo htmlspecialchars($rr, ENT_QUOTES, 'UTF-8'); ?></div>
             </div>
@@ -139,14 +134,15 @@
                             $('#emw').show();
                         } else {
                             // Redirect to the menu page
-                            window.location.href = "../page/menu.php";
+                          
+                            window.location.href = "menu2.php";
                         }
                     }
                 });
             });
         });
 
-          </script>          
+          </script>            
         </div>       
       </div>
 
@@ -156,10 +152,7 @@
         <div class="modallogin2-content">
           <span class="tutup2">&times;</span> 
           
-          <?php   
-              include('../validationDB/action.php');
-              $rr = isset($_SESSION['rr']) ? $_SESSION['rr'] : '';
-              ?>
+          
           <p id="title-modal-login">
             <h1 class="nama">Login Pemilik Kos</h1></p>
             
@@ -194,7 +187,7 @@
                 // Send the data using post
                 $.ajax({
                     type: 'POST',
-                    url: '../validationDB/action.php',
+                    url: '../validationDB/action2.php',
                     data: formData,
                     dataType: 'json',
                     success: function(response) {
@@ -204,20 +197,19 @@
                             $('#emw1').show();
                         } else {
                             // Redirect to the menu page
-                            alert("login berhasil dilakukan");
-                            window.location.href = "../afterLogin/menu.php";
+                            
+                            window.location.href = "menu2.php";
                         }
                     }
                 });
             });
         });
 
-          </script>        
+          </script>       
         </div>       
       </div>
     <!-- login penyewa -->
-    <!-- template header --> 
-      <script src="../js/menu.js"></script>
+    <!-- template header -->  
         <!--Dynamic Content start-->
       <div class="container-xxl py-5">
           <div class="tab-content">
@@ -261,7 +253,7 @@
             </div>
       </div>
         <!-- Dynamic Content end -->  
-      
+<script src="../js/menu.js"></script>
 </body>
 
 

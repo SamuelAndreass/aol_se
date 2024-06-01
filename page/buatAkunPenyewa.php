@@ -79,7 +79,7 @@ include("config.php");
 
       else {
         mysqli_query($con,"INSERT INTO users(namaUser, nomorTelpon, emailUser, userPassword) VALUES('$nama2', '$phonenum2', '$mail', '$password')");
-        echo "<script>alert('Akun berhasil dibuat'); window.location.href='menu.html';</script>";
+        echo "<script>alert('Akun berhasil dibuat'); window.location.href='menu.php';</script>";
       }
     } else{
 ?>

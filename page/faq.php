@@ -1,4 +1,7 @@
-
+<?php 
+   session_start();
+  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,15 +23,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"> 
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 
@@ -85,11 +88,6 @@
         <!-- Modal content -->
         <div class="modallogin-content" >
           <span class="tutup">&times;</span> 
-          
-          <?php   
-              include('../validationDB/action.php');
-              $rr = isset($_SESSION['rr']) ? $_SESSION['rr'] : '';
-              ?>
           <p id="title-modal-login">
             <h1 class="nama">Login Pencari Kos</h1></p>
             
@@ -135,14 +133,15 @@
                             $('#emw').show();
                         } else {
                             // Redirect to the menu page
-                            window.location.href = "../page/menu.php";
+                          
+                            window.location.href = "menu2.php";
                         }
                     }
                 });
             });
         });
 
-          </script>          
+          </script>            
         </div>       
       </div>
 
@@ -152,10 +151,7 @@
         <div class="modallogin2-content">
           <span class="tutup2">&times;</span> 
           
-          <?php   
-              include('../validationDB/action.php');
-              $rr = isset($_SESSION['rr']) ? $_SESSION['rr'] : '';
-              ?>
+          
           <p id="title-modal-login">
             <h1 class="nama">Login Pemilik Kos</h1></p>
             
@@ -190,7 +186,7 @@
                 // Send the data using post
                 $.ajax({
                     type: 'POST',
-                    url: '../validationDB/action.php',
+                    url: '../validationDB/action2.php',
                     data: formData,
                     dataType: 'json',
                     success: function(response) {
@@ -200,20 +196,21 @@
                             $('#emw1').show();
                         } else {
                             // Redirect to the menu page
-                            alert("login berhasil dilakukan");
-                            window.location.href = "../afterLogin/menu.php";
+                            
+                            window.location.href = "menu2.php";
                         }
                     }
                 });
             });
         });
 
-          </script>        
+          </script>       
         </div>       
       </div>
     <!-- login penyewa -->
-    <!-- template header -->  
-      
+    <!-- template header -->
+
+     
     <div class ="wrapper">
         <h1>Frequently Asked<span class="spn"> Questions</span></h1>
 
