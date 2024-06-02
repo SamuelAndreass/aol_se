@@ -1,4 +1,6 @@
-<!doctype html>
+<?php session_start();
+include("../page/config.php")?>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -10,8 +12,22 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
 	    <!----css3---->
         <link rel="stylesheet" href="css/custom.css">
-		
-		
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 		<!--google fonts -->
 	
 	    <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -306,7 +322,17 @@ logout</span>Logout</a>
 		   
 		   
 		   <!--------main-content------------->
-		   
+       <?php
+    if (isset($_GET["msg"])) {
+      $msg = $_GET["msg"];
+      echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+      ' . $msg . '
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+    }
+    ?>
+
+       
 		   <div class="main-content">
 			  <div class="row">
 			    
@@ -330,227 +356,192 @@ logout</span>Logout</a>
         <tr>
           <th>
             <span class="custom-checkbox">
-								<input type="checkbox" id="selectAll">
-								<label for="selectAll"></label>
+								ID
 							</span>
           </th>
           <th>Name</th>
           <th>Email</th>
-          <th>Address</th>
+          <th>Password</th>
           <th>Phone</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
+        <!-- Edit Modal HTML -->
+  <div id="addEmployeeModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form method="POST" action="add-new.php">
+          <div class="modal-header">
+            <h4 class="modal-title">Add Employee</h4>
+            
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="ratau" style="display: none;">
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Error!</strong><div class="error-message"></div>
+          </div>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+
+            
+              <label>Name</label>
+              <input type="text" class="form-control" name="username" required>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" class="form-control" name="email" required>
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="text" class="form-control" name="phone" required></input>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control" name="password" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+            <input type="submit" class="btn btn-success" name="submit" value="Add">
+
+          </div>
+          
+        </form>
+
+      </div>
+    </div>
+  </div>
         <tr>
-          <td>
-            <span class="custom-checkbox">
-			<input type="checkbox" id="checkbox1" name="options[]" value="1">
-			<label for="checkbox1"></label>
-							</span>
+          
+         <?php 
+         $q1 = "SELECT * FROM users";
+         $r = mysqli_query($con, $q1);
+         while ($row = mysqli_fetch_assoc($r)):
+          $id = $row['id'];
+          $user = $row['namaUser'];
+          $email = $row['emailUser'];
+          $pass = $row['userPassword'];
+          $telp = $row['nomorTelpon'];
+          ?>
+          <tr>
+          <td><?php echo $row['id'];?></td>
+          <td><?php echo $row['namaUser'];?></td>
+          <td><?php echo $row['emailUser'];?></td>
+          <td><?php echo $row['userPassword'];?></td>
+          <td><?php echo $row['nomorTelpon'];?></td>
+          
+			       
+         
+			        
+          <td><a href="#editEmployeeModal<?= $id?>" class="edit" data-toggle="modal" data-target="#editEmployeeModal<?= $id?>">
+                <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+              <a href="#deleteEmployeeModal<?= $id?>" class="edit" data-toggle="modal" data-target="#deleteEmployeeModal<?= $id?>">
+                <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
           </td>
-          <td>Thomas Hardy</td>
-          <td>thomashardy@mail.com</td>
-          <td>89 Chiaroscuro Rd, Portland, USA</td>
-          <td>(171) 555-2222</td>
-          <td>
-            <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-          </td>
+          </tr>
+          <!-- Edit Modal HTML -->
+          
+              
+              <div id="editEmployeeModal<?= $id?>" class="modal fade">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <form method="POST" action="edit-employee.php">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Edit Employee</h4>
+                     
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="form-group">
+                          <label>Name <?php echo $id?></label>
+                          <input type="text" class="form-control" name="username1" value="<?php echo $user?>"required>
+                        </div>
+                        <div class="form-group">
+                          <label>Email</label>
+                          <input type="email" class="form-control" name="email1" value="<?php echo $email?>" required>
+                        </div>
+                        <div class="form-group">
+                          <label>Phone</label>
+                          <input type="text" class="form-control" name="phone1" value="<?php echo $telp?>" required>
+                        </div>
+                        <div class="form-group">
+                          <label>Password</label>
+                          <input type="text" class="form-control" name="password1" value="<?php echo $pass?>"required>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                        <input type="submit" class="btn btn-info" value="Save" name="submit21">
+                      </div>
+                    </form>
+                    
+                  </div>
+                </div>
+              </div>
+
+          <!-- Delete Modal HTML -->
+          <div id="deleteEmployeeModal<?= $id?>" class="modal fade">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <form method="POST" action="delete.php">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Delete Employee</h4>
+                      <button type="button" class="close" data-dismiss="modal" 
+                  aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Apakah anda yakin akan menghapus [<?php echo $user?>] dari database?</p>
+                      <p class="text-warning"><small>Tindakan ini tidak bisa dibatalkan.</small></p>
+                    </div>
+                    <div class="modal-footer">
+                      <input type="button" class="btn btn-default" data-dismiss="modal" value="Batalkan">
+                      <input type="submit" class="btn btn-danger" value="Ya, saya yakin!">
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+              </div>
+          </div>
         </tr>
-        <tr>
-          <td>
-            <span class="custom-checkbox">
-								<input type="checkbox" id="checkbox2" 
-								name="options[]" value="1">
-								<label for="checkbox2"></label>
-							</span>
           </td>
-          <td>Dominique Perrier</td>
-          <td>dominiqueperrier@mail.com</td>
-          <td>Obere Str. 57, Berlin, Germany</td>
-          <td>(313) 555-5735</td>
-          <td>
-            <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span class="custom-checkbox">
-								<input type="checkbox" id="checkbox3"
-								name="options[]" value="1">
-								<label for="checkbox3"></label>
-							</span>
-          </td>
-          <td>Maria Anders</td>
-          <td>mariaanders@mail.com</td>
-          <td>25, rue Lauriston, Paris, France</td>
-          <td>(503) 555-9931</td>
-          <td>
-            <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span class="custom-checkbox">
-								<input type="checkbox" id="checkbox4" 
-								name="options[]" value="1">
-								<label for="checkbox4"></label>
-							</span>
-          </td>
-          <td>Fran Wilson</td>
-          <td>franwilson@mail.com</td>
-          <td>C/ Araquil, 67, Madrid, Spain</td>
-          <td>(204) 619-5731</td>
-          <td>
-            <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span class="custom-checkbox">
-								<input type="checkbox" id="checkbox5" 
-								name="options[]" value="1">
-								<label for="checkbox5"></label>
-							</span>
-          </td>
-          <td>Martin Blank</td>
-          <td>martinblank@mail.com</td>
-          <td>Via Monte Bianco 34, Turin, Italy</td>
-          <td>(480) 631-2097</td>
-          <td>
-            <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-			<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-          </td>
-        </tr>
+        </tr> 
       </tbody>
+      <?php endwhile; ?>
     </table>
-    <div class="clearfix">
-      <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-      <ul class="pagination">
-        <li class="page-item disabled"><a href="#">Previous</a></li>
-        <li class="page-item"><a href="#" class="page-link">1</a></li>
-        <li class="page-item"><a href="#" class="page-link">2</a></li>
-        <li class="page-item active"><a href="#" class="page-link">3</a></li>
-        <li class="page-item"><a href="#" class="page-link">4</a></li>
-        <li class="page-item"><a href="#" class="page-link">5</a></li>
-        <li class="page-item"><a href="#" class="page-link">Next</a></li>
-      </ul>
-    </div>
-  </div>
+    
 </div>
-<!-- Edit Modal HTML -->
-<div id="addEmployeeModal" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form>
-        <div class="modal-header">
-          <h4 class="modal-title">Add Employee</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Address</label>
-            <textarea class="form-control" required></textarea>
-          </div>
-          <div class="form-group">
-            <label>Phone</label>
-            <input type="text" class="form-control" required>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-          <input type="submit" class="btn btn-success" value="Add">
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<!-- Edit Modal HTML -->
-<div id="editEmployeeModal" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form>
-        <div class="modal-header">
-          <h4 class="modal-title">Edit Employee</h4>
-          <button type="button" class="close" data-dismiss="modal" 
-		  aria-hidden="true">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Address</label>
-            <textarea class="form-control" required></textarea>
-          </div>
-          <div class="form-group">
-            <label>Phone</label>
-            <input type="text" class="form-control" required>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-          <input type="submit" class="btn btn-info" value="Save">
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
+
+
 
 
 
 <!-- Delete Modal HTML -->
 <div id="deleteEmployeeModal" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form>
-        <div class="modal-header">
-          <h4 class="modal-title">Delete Employee</h4>
-          <button type="button" class="close" data-dismiss="modal" 
-		  aria-hidden="true">&times;</button>
-        </div>
-        <div class="modal-body">
-          <p>Are you sure you want to delete these Records?</p>
-          <p class="text-warning"><small>This action cannot be undone.</small></p>
-        </div>
-        <div class="modal-footer">
-          <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-          <input type="submit" class="btn btn-danger" value="Delete">
-        </div>
-      </form>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form>
+          <div class="modal-header">
+            <h4 class="modal-title">Delete Employee</h4>
+            <button type="button" class="close" data-dismiss="modal" 
+        aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to delete these Records?</p>
+            <p class="text-warning"><small>This action cannot be undone.</small></p>
+          </div>
+          <div class="modal-footer">
+            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+            <input type="submit" class="btn btn-danger" value="Delete">
+          </div>
+        </form>
+
+      </div>
     </div>
-	</div>
-  </div>
-				
-		   
-			  </div>
+    </div>
+</div>
 			 
 			 
 			 <!---footer---->
@@ -609,6 +600,4 @@ logout</span>Logout</a>
 
   </body>
   
-  </html>
-
-
+</html>
