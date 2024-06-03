@@ -281,6 +281,7 @@
                       <div class="modal-body">
                         <div class="form-group">
                           <label>Name <?php echo $id?></label>
+                          <input name="id" value="<?= $row['pemilikID']?>" type="hidden"></input>
                           <input type="text" class="form-control" name="username1" value="<?php echo $user?>"required>
                         </div>
                         <div class="form-group">

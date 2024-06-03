@@ -5,16 +5,16 @@ if (isset($_POST["submit21"])) {
     $username = $_POST['username1'];
     $phone = $_POST['phone1'];
     $password = $_POST['password1'];
-    $id = $_POST['id'];
 
-    $sql = "UPDATE pemilik_kos SET nomorTelpon='$phone', namaUser='$username', emailUser='$email', userPassword='$password' WHERE pemilikID= '$_POST[id]'";
+
+    $sql = "UPDATE pemilik_kos SET nomorTelpon='$phone', namaUser='$username', emailUser='$email', userPassword='$password' WHERE pemilikID = '$_POST[id]'";
     $result = mysqli_query($con, $sql);
     if ($result) {
         echo "<script>alert('ubah data sukses')
-        document.location='home.php'</script>";
+        document.location='home2.php'</script>";
     } else {
         echo "<script>alert('ubah data gagal')
-        document.location='home.php'</script>";
+        document.location='home2.php'</script>";
     }
 }
 
