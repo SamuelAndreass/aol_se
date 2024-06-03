@@ -1,5 +1,7 @@
-<?php session_start();
-include("../page/config.php")?>
+<?php 
+  session_start();
+  include("../page/config.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -371,7 +373,7 @@ logout</span>Logout</a>
   <div id="addEmployeeModal" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form method="POST" action="add-new.php">
+        <form method="POST" action="crudactionPemilik.php">
           <div class="modal-header">
             <h4 class="modal-title">Add Employee</h4>
             
@@ -416,17 +418,17 @@ logout</span>Logout</a>
         <tr>
           
          <?php 
-         $q1 = "SELECT * FROM users";
+         $q1 = "SELECT * FROM pencari_kos";
          $r = mysqli_query($con, $q1);
          while ($row = mysqli_fetch_assoc($r)):
-          $id = $row['id'];
+          $id = $row['pencariID'];
           $user = $row['namaUser'];
           $email = $row['emailUser'];
           $pass = $row['userPassword'];
           $telp = $row['nomorTelpon'];
           ?>
           <tr>
-          <td><?php echo $row['id'];?></td>
+          <td><?php echo $row['pencariID'];?></td>
           <td><?php echo $row['namaUser'];?></td>
           <td><?php echo $row['emailUser'];?></td>
           <td><?php echo $row['userPassword'];?></td>
@@ -447,7 +449,7 @@ logout</span>Logout</a>
               <div id="editEmployeeModal<?= $id?>" class="modal fade">
                 <div class="modal-dialog">
                   <div class="modal-content">
-                    <form method="POST" action="edit-employee.php">
+                    <form method="POST" action="crudactionPemilik.php">
                       <div class="modal-header">
                         <h4 class="modal-title">Edit Employee</h4>
                      
@@ -485,19 +487,19 @@ logout</span>Logout</a>
           <div id="deleteEmployeeModal<?= $id?>" class="modal fade">
               <div class="modal-dialog">
                 <div class="modal-content">
-                  <form method="POST" action="delete.php">
+                  <form method="POST" action="crudactionPemilik.php">
                     <div class="modal-header">
                       <h4 class="modal-title">Delete Employee</h4>
-                      <button type="button" class="close" data-dismiss="modal" 
-                  aria-hidden="true">&times;</button>
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
+                    <input name="id" value="<?= $row['pencariID']?>" type="hiden"></input>
                     <div class="modal-body">
                       <p>Apakah anda yakin akan menghapus [<?php echo $user?>] dari database?</p>
                       <p class="text-warning"><small>Tindakan ini tidak bisa dibatalkan.</small></p>
                     </div>
                     <div class="modal-footer">
                       <input type="button" class="btn btn-default" data-dismiss="modal" value="Batalkan">
-                      <input type="submit" class="btn btn-danger" value="Ya, saya yakin!">
+                      <input type="submit" class="btn btn-danger" value="Ya, saya yakin!" name="submitdel">
                     </div>
                   </form>
 

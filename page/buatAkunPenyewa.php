@@ -71,14 +71,14 @@ include("config.php");
       $mail = isset($_POST['mail']) ? $_POST['mail'] : '';
       $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-      $verif_query = mysqli_query($con, "SELECT emailUser FROM users WHERE emailUser = '$mail'");
+      $verif_query = mysqli_query($con, "SELECT emailUser FROM pencari_kos WHERE emailUser = '$mail'");
 
       if (!$verif_query) {
         die('Error: ' . mysqli_error($con));
       }
 
       else {
-        mysqli_query($con,"INSERT INTO users(namaUser, nomorTelpon, emailUser, userPassword) VALUES('$nama2', '$phonenum2', '$mail', '$password')");
+        mysqli_query($con,"INSERT INTO pencari_kos(namaUser, nomorTelpon, emailUser, userPassword) VALUES('$nama2', '$phonenum2', '$mail', '$password')");
         echo "<script>alert('Akun berhasil dibuat'); window.location.href='menu.php';</script>";
       }
     } else{

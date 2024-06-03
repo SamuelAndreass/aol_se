@@ -284,4 +284,3 @@ window.onclick = function(event) {
     modallogin3.style.display = "none";
   }
 };
-

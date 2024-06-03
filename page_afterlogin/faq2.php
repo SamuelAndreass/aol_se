@@ -1,8 +1,9 @@
 <?php 
   session_start();
   include("config.php");
-  if(!isset($_SESSION['id'])){
-   header("Location: menu.php");
+  if(!isset($_SESSION['role']) || $_SESSION['role'] != 'pencari kos'){
+    echo "<script>alert('forbbiden access to this page')</script>";
+    header("Location: ../page/menu.php");
   }
 ?>
 <!DOCTYPE html>
@@ -57,13 +58,13 @@
       <?php
     $nama = $_SESSION['nama'];
     $r_phone = ""; // Declare $r_name here
-    $q1 = mysqli_query($con,"SELECT * FROM users where namaUser = '$nama'");
+    $q1 = mysqli_query($con,"SELECT * FROM pencari_kos where namaUser = '$nama'");
     $r1 = mysqli_fetch_assoc($q1);
     if ($r1){
         $r_name = $r1['namaUser'];
         $r_email = $r1['emailUser'];
         $r_phone = $r1['nomorTelpon'];
-        $r_id = $r1['id'];
+        $r_id = $r1['pencariID'];
     }
 ?>
 
@@ -98,7 +99,7 @@
          
 
           <li class="profile-dropdown-list-item">
-            <a href="menu.php" id="logout-link">
+            <a href="../page/menu.php" id="logout-link">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 Keluar
             </a>

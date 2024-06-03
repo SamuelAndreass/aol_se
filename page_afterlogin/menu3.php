@@ -1,11 +1,14 @@
 <?php 
   session_start();
   include("config.php");
-  if(!isset($_SESSION['id'])){
-   header("Location: menu.php");
+  if(!isset($_SESSION['role']) || $_SESSION['role'] != 'pemilik kos'){
+    
+    header("Location: ../page/menu.php");
   }
 ?>
+
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -47,10 +50,10 @@
   </head>
   <body>
   <nav class="navbar">
-      <a href="menu.php"><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" class="navbar-logo" alt="logo" /></a>
+      <a href="menu3.php"><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" class="navbar-logo" alt="logo" /></a>
       <ul class="navbar-list">
-        <li><a href="faq2.php">FAQ</a></li>
-        <li><a href="aboutUS2.php">Tentang Kami</a></li>
+        <li><a href="faq3.php">FAQ</a></li>
+        <li><a href="aboutUS3.php">Tentang Kami</a></li>
 
       </ul>
 
@@ -58,10 +61,10 @@
       <?php
     $nama = $_SESSION['nama'];
     $r_phone = ""; // Declare $r_name here
-    $q1 = mysqli_query($con,"SELECT * FROM users where namaUser = '$nama'");
+    $q1 = mysqli_query($con,"SELECT * FROM pemilik_kos where namaUser = '$nama'");
     $r1 = mysqli_fetch_assoc($q1);
     if ($r1){
-        $r_id = $r1['id'];
+      $r_id = $r1['pemilikID'];
     }
 ?>
 
@@ -79,7 +82,7 @@
         <ul class="profile-dropdown-list">
           <li class="profile-dropdown-list-item">
 
-              <?php echo"<a href='editprofile.php?id=$r_id'>
+              <?php echo"<a href='editprofile2.php?id=$r_id'>
              
               <i class='fa-regular fa-user'></i>"?>
               Profile
@@ -95,7 +98,7 @@
 
               
             <li class="profile-dropdown-list-item">
-            <a href="menu.php" id="logout-link">
+            <a href="../page/menu.php" id="logout-link">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 Keluar
             </a>
@@ -103,7 +106,7 @@
         </ul>
       </div>
     </nav>
-
+    <?php var_dump($_SESSION['role'])?>
     <script src="../js/menu2.js"></script>
   </body>
 </html>

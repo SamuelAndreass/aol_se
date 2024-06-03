@@ -9,7 +9,7 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
     $mail = mysqli_real_escape_string($con, $_POST['email']);
   
     // Prepare a SQL query to check if the phone number exists in your database
-    $query = "SELECT emailUser FROM users WHERE emailUser = '$mail'";
+    $query = "SELECT emailUser FROM pemilik_kos WHERE emailUser = '$mail'";
   
     // Execute the query
     $result = mysqli_query($con, $query);

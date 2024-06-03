@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pwd = isset($_POST['pwd']) ? $_POST['pwd'] : '';
 
     // Query the database to find the user
-    $sql = "SELECT * FROM users WHERE nomorTelpon = ?";
+    $sql = "SELECT * FROM pemilik_kos WHERE nomorTelpon = ?";
     $stmt = $con->prepare($sql);
     $stmt->bind_param('s', $phone);
     $stmt->execute();
@@ -26,7 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['nama'] = $user['namaUser'];
             $_SESSION['email'] = $user['emailUser'];
             $_SESSION['phone'] = $user['nomorTelpon'];
-            $_SESSION['id'] = $user['id'];
+            $_SESSION['role'] = $user['role'];
+            $_SESSION['id'] = $user['pemilikID'];
             echo json_encode(['error' => false]);
         } else {
             $_SESSION['rr'] = 'Password atau nomor handphone tidak sesuai';

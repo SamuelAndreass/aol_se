@@ -1,6 +1,6 @@
 <?php 
     session_start();
     session_destroy();
-    header("Location: menu.php");
+    header("Location: ../page/menu.php");
     
 ?>

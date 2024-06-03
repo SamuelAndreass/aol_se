@@ -1,4 +1,5 @@
-<?php  session_start(); ?>
+<?php  session_start(); 
+include 'config.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,11 +92,11 @@
           <span class="tutup">&times;</span> 
           <p id="title-modal-login">
             <h1 class="nama">Login Pencari Kos</h1></p>
-       
+            
             <div id="emw">
               <div id="em" style="display:block"><?php echo htmlspecialchars($rr, ENT_QUOTES, 'UTF-8'); ?></div>
             </div>
-            <form method="POST" action="" onsubmit="return validateForm()">
+            <form method="POST" action="" id="1">
           <div class="input">
             <label for="phone" id="telpon">Nomor Handphone:</label><br>
             <input type="text" id="phone" name="phone" style="font-size: 15px; padding-left:10px; padding-left:10px;"><br>
@@ -112,30 +113,30 @@
               <br>
             </div>  
             <p>Belum punya akun Kostify? 
-              <a href="buatAkun.php" class="register-e">Daftar sekarang</a></p>
+              <a href="buatAkunPenyewa.php" class="register-e">Daftar sekarang</a></p>
             
           </form>
           <script>
-            $(document).ready(function() {
-            $('form').on('submit', function(e) {
+         $(document).ready(function() {
+            $('#1').on('submit', function(e) {
             e.preventDefault();
                 // Get the form data
                 var formData = $(this).serialize();
                 // Send the data using post
                 $.ajax({
                     type: 'POST',
-                    url: '../validationDB/action2.php',
+                    url: '../validationDB/action.php',
                     data: formData,
                     dataType: 'json',
                     success: function(response) {
                         if (response.error) {
                             // Show the error message
-                            $('#em').text('Password atau nomor handphone tidak sesuai');
-                            $('#emw').show();
+                            $('#em1').text('Password atau nomor handphone tidak sesuai');
+                            $('#emw1').show();
                         } else {
                             // Redirect to the menu page
-                          
-                            window.location.href = "menu2.php";
+                            window.location.href = "../page_afterlogin/menu2.php";
+                            
                         }
                     }
                 });
@@ -159,7 +160,7 @@
             <div id="emw1">
               <div id="em1" style="display:block"><?php echo htmlspecialchars($rr, ENT_QUOTES, 'UTF-8'); ?></div>
             </div>
-            <form method="POST" action="" onsubmit="return validateForm()">
+            <form method="POST" action="" id="2">
           <div class="input">
             <label for="phone" id="telpon">Nomor Handphone:</label><br>
             <input type="text" id="phone3" name="phone" style="font-size: 15px; padding-left:10px; padding-left:10px;"><br>
@@ -176,11 +177,11 @@
               <br>
             </div>  
             <p>Belum punya akun Kostify? 
-              <a href="buatAkun.php" class="register-e">Daftar sekarang</a></p>
+              <a href="buatAkunPemilik.php" class="register-e">Daftar sekarang</a></p>
           </form>  
           <script>
             $(document).ready(function() {
-            $('form').on('submit', function(e) {
+            $('#2').on('submit', function(e) {
             e.preventDefault();
                 // Get the form data
                 var formData = $(this).serialize();
@@ -197,8 +198,8 @@
                             $('#emw1').show();
                         } else {
                             // Redirect to the menu page
+                            window.location.href = "../page_afterlogin/menu3.php";
                             
-                            window.location.href = "menu2.php";
                         }
                     }
                 });

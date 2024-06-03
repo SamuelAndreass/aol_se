@@ -1,5 +1,11 @@
-<?php session_start();
-include("config.php")?>
+<?php 
+  session_start();
+  include("config.php");
+  if(!isset($_SESSION['role']) || $_SESSION['role'] != 'pencari kos'){
+    echo "<script>alert('forbbiden access to this page')</script>";
+    header("Location: ../page/menu.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,7 +57,7 @@ include("config.php")?>
   <?php
     $id = $_SESSION['id'];
     $r_phone = ""; // Declare $r_name here
-    $q1 = mysqli_query($con,"SELECT * FROM users where id = '$id'");
+    $q1 = mysqli_query($con,"SELECT * FROM pencari_kos where pencariID = '$id'");
     $r1 = mysqli_fetch_assoc($q1);
     if ($r1){
         $r_name = $r1['namaUser'];
@@ -61,11 +67,11 @@ include("config.php")?>
         $r_status = $r1['status'];
         $r_gender = $r1['jenisKelamin'];
         $r_pekerjaan = $r1['pekerjaan'];
-        $r_id = $r1['id'];
+        $r_id = $r1['pencariID'];
     }
   ?>
     <nav class="navbar-nav2">
-        <a href="menu.php"><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" class="navbar-logo" alt="logo" /></a>
+        <a href="menu2.php"><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" class="navbar-logo" alt="logo" /></a>
         <ul class="navbar-list">
           <li><a href="faq2.php">FAQ</a></li>
           <li><a href="aboutUS2.php">Tentang Kami</a></li>
@@ -95,7 +101,7 @@ include("config.php")?>
             </a>
           </li>
           <li class="profile-dropdown-list-item">
-            <a href="menu.php">
+            <a href="../page/menu.php">
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
               Keluar
             </a>
@@ -138,7 +144,7 @@ include("config.php")?>
                 $phone = $_POST['inputPhone1'];
                 $id = $_SESSION['id'];
 
-                $edit_query = mysqli_query($con,"UPDATE users SET jenisKelamin='$gender',nomorTelpon='$phone',namaUser='$username', emailUser='$email', pekerjaan='$pekerjaan', pendidikanTerakhir='$pendidikan', status='status'WHERE Id=$id ") or die("error occurred");
+                $edit_query = mysqli_query($con,"UPDATE pencari_kos SET jenisKelamin='$gender',nomorTelpon='$phone',namaUser='$username', emailUser='$email', pekerjaan='$pekerjaan', pendidikanTerakhir='$pendidikan', status='$status'WHERE pencariID=$id ") or die("error occurred");
 
                 if($edit_query){
                     echo "<div class='message'>
@@ -171,7 +177,7 @@ include("config.php")?>
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputLastName">Status</label>
                                     <select name="status" class="form-select" aria-label="Default select example">
-
+                                    <option   <?php if($r_status == ''){ echo 'selected'; } ?> ></option>
                                       <option value="Belum kawin" <?php if($r_status == 'Belum kawin'){ echo 'selected'; } ?> >Belum kawin</option>
                                       <option value="Kawin" <?php if($r_status == 'Kawin'){ echo 'selected'; } ?>>Kawin</option>
                                       <option value="Kawin memiliki anak" <?php if($r_status == 'Kawin memiliki anak'){ echo 'selected'; } ?>>Kawin memiliki anak</option>
