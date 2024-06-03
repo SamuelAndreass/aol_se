@@ -180,8 +180,8 @@
           </th>
           <th>Name</th>
           <th>Email</th>
-          <th>Address</th>
           <th>Phone</th>
+          <th>Password</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -247,8 +247,9 @@
             </span></td>
           <td><?php echo $row['namaUser'];?></td>
           <td><?php echo $row['emailUser'];?></td>
-          <td><?php echo $row['userPassword'];?></td>
           <td><?php echo $row['nomorTelpon'];?></td>
+          <td><?php echo $row['userPassword'];?></td>
+          
           
 			       
          

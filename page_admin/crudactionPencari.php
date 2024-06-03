@@ -5,27 +5,19 @@ if (isset($_POST["submit21"])) {
     $username = $_POST['username1'];
     $phone = $_POST['phone1'];
     $password = $_POST['password1'];
-    
-    $stmt = $con->prepare("SELECT id FROM pencari_kos WHERE emailUser = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if($result->num_rows === 0) exit('No rows');
-    $row = $result->fetch_assoc();
-    $id = $row['id'];
-    
-    $stmt = $con->prepare("UPDATE pencari_kos SET nomorTelpon=?, namaUser=?, emailUser=?, userPassword=? WHERE id=?");
-    $stmt->bind_param("ssssi", $phone, $username, $email, $password, $id);
-    $stmt->execute();
-    
-    if($stmt->affected_rows === 1){
+    $id = $_POST['id'];
+
+    $sql = "UPDATE pencari_kos SET nomorTelpon='$phone', namaUser='$username', emailUser='$email', userPassword='$password' WHERE pencariID= '$_POST[id]'";
+    $result = mysqli_query($con, $sql);
+    if ($result) {
         echo "<script>alert('ubah data sukses')
         document.location='home.php'</script>";
-    }else{
+    } else {
         echo "<script>alert('ubah data gagal')
-       document.location='home.php'</script>";
+        document.location='home.php'</script>";
     }
 }
+
 
 
 

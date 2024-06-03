@@ -184,8 +184,8 @@
           </th>
           <th>Name</th>
           <th>Email</th>
-          <th>Address</th>
           <th>Phone</th>
+          <th>Password</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -194,7 +194,7 @@
         <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">
               <div class="modal-content">
-                <form method="POST" action="crudactionPemilik.php">
+                <form method="POST" action="crudactionPencari.php">
                   <div class="modal-header">
                     <h4 class="modal-title">Tambah akun</h4>
                     
@@ -251,8 +251,9 @@
             </span></td>
           <td><?php echo $row['namaUser'];?></td>
           <td><?php echo $row['emailUser'];?></td>
-          <td><?php echo $row['userPassword'];?></td>
           <td><?php echo $row['nomorTelpon'];?></td>
+          <td><?php echo $row['userPassword'];?></td>
+          
           
 			       
          
@@ -275,7 +276,7 @@
             <div id="editEmployeeModal<?= $id?>" class="modal fade">
                 <div class="modal-dialog">
                   <div class="modal-content">
-                    <form method="POST" action="crudactionPemilik.php">
+                    <form method="POST" action="crudactionPencari.php">
                       <div class="modal-header">
                         <h4 class="modal-title">Edit akun</h4>
                      
@@ -288,10 +289,12 @@
                         </div>
                         <div class="form-group">
                           <label>Email</label>
+                          <input name="id" value="<?= $row['pencariID']?>" type="hidden"></input>
                           <input type="email" class="form-control" name="email1" value="<?php echo $email?>" required>
                         </div>
                         <div class="form-group">
                           <label>Phone</label>
+                          
                           <input type="text" class="form-control" name="phone1" value="<?php echo $telp?>" required>
                         </div>
                         <div class="form-group">
@@ -314,7 +317,7 @@
             <div id="deleteEmployeeModal<?= $id?>" class="modal fade">
               <div class="modal-dialog">
                 <div class="modal-content">
-                  <form method="POST" action="crudactionPemilik.php">
+                  <form method="POST" action="crudactionPencari.php">
                     <div class="modal-header">
                       <h4 class="modal-title">Hapus akun</h4>
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
