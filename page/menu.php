@@ -131,11 +131,15 @@ include 'config.php'?>
                     success: function(response) {
                         if (response.error) {
                             // Show the error message
-                            $('#em1').text('Password atau nomor handphone tidak sesuai');
-                            $('#emw1').show();
+                            $('#em').text('Password atau nomor handphone tidak sesuai');
+                            $('#emw').show();
                         } else {
-                            // Redirect to the menu page
-                            window.location.href = "../page_afterlogin/menu2.php";
+                             // Redirect to the menu page
+                             if(response.role == 'admin'){
+                              window.location.href = "../page_admin/home.php"
+                            }else{
+                              window.location.href = "../page_afterlogin/menu2.php";
+                            }
                             
                         }
                     }

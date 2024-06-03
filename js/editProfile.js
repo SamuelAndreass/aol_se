@@ -16,7 +16,7 @@ document.getElementById('logout-link').addEventListener('click', function(event)
   fetch('end_session.php')
   .then(function() {
       // After the session has been ended, follow the link
-      window.location.href = 'menu.php';
+      window.location.href = '../page/menu.php';
       alert("Berhasil melakukan logout");
   });
 });

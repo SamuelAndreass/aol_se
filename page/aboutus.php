@@ -130,9 +130,12 @@
                             $('#emw').show();
                            
                         } else {
-                            // Redirect to the menu page
-                            alert("login berhasil dilakukan");
-                            window.location.href = "../afterLogin/menu2.php";
+                             // Redirect to the menu page
+                             if(response.role == 'admin'){
+                              window.location.href = "../page_admin/home.php"
+                            }else{
+                              window.location.href = "../page_afterlogin/menu2.php";
+                            }
                         }
                     }
                 });

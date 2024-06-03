@@ -2,12 +2,15 @@ body,html{
 	line-height:1.8;
 	font-family:'Poppins',sans-serif;
 	color:#555e58;
-	text-transform:capitalize;
+	text-transform:none;
 	font-weight:400;
 	margin:0px;
 	padding:0px;
 }
 
+.table-striped tbody tr:nth-of-type(odd){
+	background-color: white;
+}
 
 /*==========================================================
   material-icon font-style
@@ -238,7 +241,7 @@ overflow:auto;
 	   font-weight:400;
 	   display:block;
 	   color:#777777;
-	   text-transform:capitalize;
+	   text-transform:none;
    }
    
       #sidebar ul li a i{

@@ -81,7 +81,8 @@
         </nav>
 	
 		<!--------page-content---------------->
-    <div id="content">
+		
+		<div id="content">
 		   
 		   <!--top--navbar----design--------->
 		   
@@ -119,7 +120,7 @@
 								                  <span class="xp-user-live"></span>
 								                </a>
 								                <ul class="dropdown-menu small-menu">
-                                    
+
                                     <li>
                                         <a href="../page/menu.php" id="logout-link"><span class="material-icons">logout</span>Logout</a>
                                     </li>
@@ -130,7 +131,6 @@
 							
                         </div>
                     </div>
-                    <!-- End XP Col -->
                     <!-- End XP Col -->
 
                 </div> 
@@ -149,10 +149,6 @@
 		   
 		   
 
-		   
-		   
-		   
-
 			 
 			 
 <!--------main-content------------->
@@ -165,7 +161,7 @@
     <div class="table-title">
       <div class="row">
         <div class="col-sm-6 p-0 d-flex justify-content-lg-start justify-content-center">
-          <h2 class="ml-lg-2">Pencari kos</h2>
+          <h2 class="ml-lg-2">Pemilik kos</h2>
         </div>
         <div class="col-sm-6 p-0 d-flex justify-content-lg-end justify-content-center">
           <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal">
@@ -236,10 +232,10 @@
           </div>
         <tr>
           <?php 
-         $q1 = "SELECT * FROM pencari_kos";
+         $q1 = "SELECT * FROM pemilik_kos";
          $r = mysqli_query($con, $q1);
          while ($row = mysqli_fetch_assoc($r)):
-          $id = $row['pencariID'];
+          $id = $row['pemilikID'];
           $user = $row['namaUser'];
           $email = $row['emailUser'];
           $pass = $row['userPassword'];
@@ -247,7 +243,7 @@
           ?>
           <tr>
           <td> <span class="custom-checkbox">
-            <?php echo $row['pencariID'];?>
+            <?php echo $row['pemilikID'];?>
             </span></td>
           <td><?php echo $row['namaUser'];?></td>
           <td><?php echo $row['emailUser'];?></td>
@@ -271,13 +267,13 @@
         
       </tbody>
       
-          <!-- Edit Modal HTML -->
+            <!-- Edit Modal HTML -->
             <div id="editEmployeeModal<?= $id?>" class="modal fade">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <form method="POST" action="crudactionPemilik.php">
                       <div class="modal-header">
-                        <h4 class="modal-title">Edit akun</h4>
+                        <h4 class="modal-title">Edit Employee</h4>
                      
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                       </div>
@@ -316,10 +312,10 @@
                 <div class="modal-content">
                   <form method="POST" action="crudactionPemilik.php">
                     <div class="modal-header">
-                      <h4 class="modal-title">Hapus akun</h4>
+                      <h4 class="modal-title">Delete akun</h4>
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
-                    <input name="id" value="<?= $row['pencariID']?>" type="hidden"></input>
+                    <input name="id" value="<?= $row['pemilikID']?>" type="hidden"></input>
                     <div class="modal-body">
                       <p>Apakah anda yakin akan menghapus [<?php echo $user?>] dari database?</p>
                       <p class="text-warning" style="color:red !important;"><small>Perubahan yang dilakukan bersifat permanen.</small></p>

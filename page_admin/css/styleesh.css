@@ -2,7 +2,7 @@ body,html{
 	line-height:1.8;
 	font-family:'Poppins',sans-serif;
 	color:#555e58;
-	text-transform:capitalize;
+	text-transform: none;
 	font-weight:400;
 	margin:0px;
 	padding:0px;
@@ -190,7 +190,7 @@ overflow:auto;
 	  color:#333;
 	  font-size:17px;
 	  margin:0px;
-	  text-transform:uppercase;
+	  text-transform:none;
 	  transition:all 0.5s ease;
 	  font-weight:600;
   }
@@ -253,7 +253,7 @@ overflow:auto;
 }
 
 #sidebar ul li a span{
-	text-transform:capitalize;
+	text-transform:none;
 	display:inline-block;
 	color: #777777;
 }

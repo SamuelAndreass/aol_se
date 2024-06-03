@@ -2,8 +2,8 @@
   session_start();
   include("config.php");
   if(!isset($_SESSION['role']) || $_SESSION['role'] != 'pencari kos'){
-    echo "<script>alert('forbbiden access to this page')</script>";
-    header("Location: ../page/menu.php");
+    echo "<script>alert('forbbiden access to this page')
+    document.location='../page/menu.php'</script>";
   }
 ?>
 <!DOCTYPE html>
@@ -101,7 +101,7 @@
             </a>
           </li>
           <li class="profile-dropdown-list-item">
-            <a href="../page/menu.php">
+            <a href="../page/menu.php" id="logout-link">
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
               Keluar
             </a>

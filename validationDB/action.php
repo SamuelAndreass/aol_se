@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['phone'] = $user['nomorTelpon'];
             $_SESSION['role'] = $user['role'];
             $_SESSION['id'] = $user['pencariID'];
-            echo json_encode(['error' => false]);
+            echo json_encode(['error' => false, 'role' => $user['role']]);
         } else {
             $_SESSION['rr'] = 'Password atau nomor handphone tidak sesuai';
             echo json_encode(['error' => true]);

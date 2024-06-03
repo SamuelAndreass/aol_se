@@ -2,8 +2,8 @@
   session_start();
   include("config.php");
   if(!isset($_SESSION['role']) || $_SESSION['role'] != 'pencari kos'){
-    echo "<script>alert('forbbiden access to this page')</script>";
-    header("Location: ../page/menu.php");
+    echo "<script>alert('forbbiden access to this page')
+    document.location='../page/menu.php'</script>";
   }
 ?>
 <!DOCTYPE html>
