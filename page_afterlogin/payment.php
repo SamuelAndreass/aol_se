@@ -1,3 +1,11 @@
+<?php 
+  session_start();
+  include("config.php");
+  if((!isset($_SESSION['role']) || $_SESSION['role'] != 'pemilik kos') || (!isset($_SESSION['role']) || $_SESSION['role'] != 'pencari kos')){
+    echo "<script>alert('forbbiden access to this page')
+    document.location='../page/menu.php'</script>";
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,13 +77,22 @@
 </head>
 <body>
 
+<?php $id = $_SESSION['id']; 
+    $q1 = mysqli_query($con, "SELECT * FROM pencari_kos where pencariID = '$id'");
+    if($q1){
+        $row = mysqli_fetch_assoc($q1);
+        if($row){
+            $name = $row['namaUser'];
+            $phone = $row['nomorTelpon'];
+        }
+    }
+?>
 <div class="container">
     <div class="section">
+    <form action="../validationDB/phpinsertPembayaranDatabase.php" method="POST">
         <h2>Informasi Penyewa</h2>
-        <div>Nama penyewa: <span id="nama-penyewa">Leonardo</span></div>
-        <div>Nomor HP: <span id="nomor-hp">+62 879-6432-903</span></div>
-        <div>Tanggal mulai sewa: <span id="tanggal-sewa">17 - 05 - 2024</span></div>
-        <a href="#" onclick="editInfo()">Ubah</a>
+        <div>Nama penyewa: <span id="nama-penyewa"><?php echo "$name"?></span></div>
+        <div>Nomor HP: <span id="nomor-hp"><?php echo "$phone"?></span></div>
     </div>
 
     <div class="section">
@@ -88,20 +105,24 @@
     <div class="section">
         <h2>Detail Order</h2>
         <img src="../images/properties/1.jpg" alt="kamar kost" class="room-image">
-        <div>Kost Coliving Ciputat | Putra</div>
+        <div style="margin-top:2rem;">Kost Coliving Ciputat | Putra</div>
         <div>WiFi · Kasur · K. Mandi Dalam</div>
     </div>
-
     <div class="section">
-        <div>Jumlah Penyewa: <input type="number" id="jumlah-penyewa" name="jumlah-penyewa" value="1" min="1" max="2"></div>
-        <div>Durasi Sewa/bulan: <input type="number" id="durasi-sewa" name="durasi-sewa" value="1" min="1"></div>
-        <div>Biaya sewa kos: Rp1.900.000</div>
-        <div>Biaya layanan: Rp9.500</div>
-    </div>
+    <div>Jumlah Penyewa: <input type="number" id="jumlah-penyewa" name="jumlah-penyewa" value="1" min="1" max="2"></div>
+    <div>Durasi Sewa/bulan: <input type="number" id="durasi-sewa" name="durasi-sewa" value="1" min="1" max="12"></div>
+    <div>Tanggal mulai menyewa: <input type="date" id="begin" name="begin" placeholder="dd-mm-yyyy" value="" max="2030-12-31"></div>
+    <div>Biaya sewa kos: <span id="biaya-sewa">Rp1.200.000</span></div>
+    <div>Biaya layanan: Rp2.000</div>
+    <input type="hidden" id="biaya-sewa2" name="biaya-sewa2">
+    <input type="hidden" value="2000" name="biaya-sewa3">
+</div>
+
 
     <div class="confirm-button">
-        <button onclick="confirmOrder()">CONFIRM</button>
+        <button name="submit" value="submit" >CONFIRM</button>
     </div>
+</form>
 </div>
 
 <script>
@@ -125,6 +146,50 @@
         alert("Berhasil melakukan pembayaran");
         window.location.href ='menu.php';
     }
+
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementById('begin').setAttribute('min', today);
+
+    var dateInput = document.getElementById('begin');
+
+    // Dapatkan nilai dari elemen input
+    var selectedDate = dateInput.value;
+    
+
+    // Cetak nilai ke konsol
+    
+var durasiSewaInput = document.getElementById('durasi-sewa');
+var biayaSewaSpan = document.getElementById('biaya-sewa');
+
+// Fungsi untuk mengubah biaya sewa
+function ubahBiayaSewa() {
+    var durasiSewa = durasiSewaInput.value;
+    var biayaSewa;
+
+    // Mengubah biaya sewa berdasarkan durasi sewa
+    if (durasiSewa == 1) {
+        biayaSewa = 1200000;
+    } else if (durasiSewa == 3) {
+        biayaSewa = 3100000;
+    } else if (durasiSewa == 12) {
+        biayaSewa = 12100000;
+    } else {
+        biayaSewa = 1200000 * durasiSewa;
+    }
+
+    // Memperbarui biaya sewa di HTML
+    biayaSewaSpan.textContent = 'Rp' + biayaSewa.toLocaleString('id-ID');
+
+    document.getElementById('biaya-sewa2').value = biayaSewa;
+}
+
+// Menambahkan event listener untuk event 'change'
+durasiSewaInput.addEventListener('change', ubahBiayaSewa);
+
+
+
+// Memanggil fungsi untuk mengatur biaya sewa awal
+ubahBiayaSewa();
 </script>
 
 </body>

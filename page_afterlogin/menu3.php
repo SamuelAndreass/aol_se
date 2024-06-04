@@ -90,7 +90,7 @@
           </li>
 
           <li class="profile-dropdown-list-item">
-            <a href="#">
+          <a href="riwayat-transaksi.php">
               <i class="fa-solid fa-cart-shopping"></i>
               Riwayat Transaksi
             </a>
@@ -106,7 +106,7 @@
         </ul>
       </div>
     </nav>
-    <?php var_dump($_SESSION['role'])?>
+   
     <script src="../js/menu2.js"></script>
   </body>
 </html>

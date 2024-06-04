@@ -1,8 +1,6 @@
 <?php 
    session_start();
   include 'config.php';
-    var_dump($_SESSION['role']);
-     var_dump($_SESSION['id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">

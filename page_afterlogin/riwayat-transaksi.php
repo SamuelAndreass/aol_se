@@ -1,10 +1,11 @@
 <?php 
-  session_start();
-  include("config.php");
-  if(!isset($_SESSION['role']) || $_SESSION['role'] != 'pemilik kos'){
+   session_start();
+   include("config.php");
+   if(!isset($_SESSION['role']) || $_SESSION['role'] != 'pencari kos'){
     echo "<script>alert('forbbiden access to this page')
     document.location='../page/menu.php'</script>";
-  }
+   }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +17,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
-    <link rel="stylesheet" href="../css/aboutUS2.css" />
+    <link rel="stylesheet" href="../css/riwayat.css" />
     <title>Profile Dropdown</title>
      <!-- box icons -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -44,17 +45,31 @@
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
   </head>
   <body>
-    <nav class="navbar">
-      <a href="menu3.php"><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" class="navbar-logo" alt="logo" /></a>
+  <nav class="navbar">
+      <a href="menu.php"><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" class="navbar-logo" alt="logo" /></a>
       <ul class="navbar-list">
-        <li><a href="faq2.html">FAQ</a></li>
-        <li><a href="aboutUS2.html">Tentang Kami</a></li>
+        <li><a href="faq2.php">FAQ</a></li>
+        <li><a href="aboutUS2.php">Tentang Kami</a></li>
+
       </ul>
 
-
-
+      <?php
+    $nama = $_SESSION['nama'];
+    $r_phone = ""; // Declare $r_name here
+    $q1 = mysqli_query($con,"SELECT * FROM pencari_kos where namaUser = '$nama'");
+    $r1 = mysqli_fetch_assoc($q1);
+    if ($r1){
+        
+        $r_id = $r1['pencariID'];
+    }
+?>
 
 
       <div class="profile-dropdown">
@@ -63,9 +78,11 @@
             
             <i class="fa-solid fa-circle"></i>
           </div>
-
-
-          <ul class="profile-dropdown-list">
+            
+          
+        </div>
+        
+        <ul class="profile-dropdown-list">
           <li class="profile-dropdown-list-item">
 
               <?php echo"<a href='editprofile.php?id=$r_id'>
@@ -77,34 +94,57 @@
 
           <li class="profile-dropdown-list-item">
             <a href="riwayat-transaksi.php">
-                <i class="fa-solid fa-cart-shopping"></i>
+              <i class="fa-solid fa-cart-shopping"></i>
               Riwayat Transaksi
             </a>
           </li>
 
-         
-
-          <li class="profile-dropdown-list-item">
+              
+            <li class="profile-dropdown-list-item">
             <a href="../page/menu.php" id="logout-link">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 Keluar
             </a>
-          </li>
+        </li>
         </ul>
       </div>
     </nav>
-<!-- end of header -->
-    <section class="about-us">
-        <div class="about">
-        <img src="../asset/about image.jpg" alt="" class="pic">
-        <div class="text">
-            <h2>About <span style="color:#2BD232;">Us</span></h2>
-            <h5 style="margin-top:30px;">Penyedia informasi <span style="color:#2BD232;">Kos-Kosan</span> terbaik</h5>
-            <p style="text-align:justify;">Kostify adalah platform terdepan dalam menyediakan informasi kost terbaik. Kami percaya bahwa mencari tempat tinggal yang nyaman dan terjangkau tidak harus menjadi proses yang sulit dan membingungkan. Itulah sebabnya kami berdedikasi untuk membuat proses tersebut menjadi mudah dan menyenangkan. Di Kostify, kami mengumpulkan dan menyediakan informasi kost terlengkap dan terpercaya. Dengan berbagai pilihan kost di berbagai lokasi, kami membantu Anda menemukan tempat tinggal yang paling sesuai dengan kebutuhan dan anggaran Anda.Bergabunglah dengan ribuan pengguna lainnya yang telah menemukan tempat tinggal mereka melalui Kostify. Selamat mencari kost, dan selamat tinggal di rumah baru Anda!  </p>
-            
-        </div>
-        </div>
-    </section>
+
+    <div class=".card mt-3">
+        <div class="card-body">
+            <div class="card-header ">Riwayat transaksi</div>
+    <table class="table table-striped table-hover table-bordered">
+    <thead>
+       
+
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+        </tr>
+    </thead>
+   
+    <tbody>
+    
+        <tr>
+        <?php
+        $id = $_SESSION['id'];
+        $q1 = mysqli_query($con, "SELECT * FROM pembayaran p JOIN kos s ON s.idKos = p.idKos WHERE p.idKos= 3;");
+        
+        while( $row = mysqli_fetch_assoc($q1)):
+    ?>
+        <th scope="row"><?php echo $row['transactionID']?></th>
+        <td><?php echo $row['transactionDate']?></td>
+        <td><?php echo $row['total_bayar']?></td>
+        <td><?php echo $row['namaKos']?></td>
+        </tr>
+    <?php endwhile;?>
+    </tbody>
+    </table>
+    </div>
+    </div>
+   
     <script src="../js/menu2.js"></script>
   </body>
 </html>

@@ -95,7 +95,7 @@
           </li>
 
           <li class="profile-dropdown-list-item">
-            <a href="#">
+          <a href="riwayat-transaksi.php">
               <i class="fa-solid fa-cart-shopping"></i>
               Riwayat Transaksi
             </a>

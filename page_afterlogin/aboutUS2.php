@@ -86,7 +86,7 @@
           </li>
 
           <li class="profile-dropdown-list-item">
-            <a href="#">
+            <a href="riwayat-transaksi.php">
                 <i class="fa-solid fa-cart-shopping"></i>
               Riwayat Transaksi
             </a>
@@ -95,7 +95,7 @@
          
 
           <li class="profile-dropdown-list-item">
-            <a href="../page/home.php" id="logout-link">
+            <a href="../page/menu.php" id="logout-link">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 Keluar
             </a>

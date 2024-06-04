@@ -47,7 +47,7 @@
   </head>
   <body>
     <nav class="navbar">
-      <a href="menu.php"><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" class="navbar-logo" alt="logo" /></a>
+      <a href="menu2.php"><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" class="navbar-logo" alt="logo" /></a>
       <ul class="navbar-list">
         <li><a href="faq2.php">FAQ</a></li>
         <li><a href="aboutUS2.php">Tentang Kami</a></li>
@@ -90,7 +90,7 @@
           </li>
 
           <li class="profile-dropdown-list-item">
-            <a href="#">
+          <a href="riwayat-transaksi.php">
               <i class="fa-solid fa-cart-shopping"></i>
               Riwayat Transaksi
             </a>
