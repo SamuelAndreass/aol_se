@@ -1,7 +1,7 @@
 <?php 
   session_start();
   include("config.php");
-  if((!isset($_SESSION['role']) || $_SESSION['role'] != 'pemilik kos') || (!isset($_SESSION['role']) || $_SESSION['role'] != 'pencari kos')){
+  if(!isset($_SESSION['role'])){
     echo "<script>alert('forbbiden access to this page')
     document.location='../page/menu.php'</script>";
   }
