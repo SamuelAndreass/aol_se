@@ -234,23 +234,34 @@
 
 <div class="hot-properties hidden-xs">
 <h4>Lihat kos lainnya</h4>
-<div class="row">
-                <div class="col-lg-4 col-sm-5"><img src="../images/properties/4.jpg" class="img-responsive img-circle" alt="properties"/></div>
-                <div class="col-lg-8 col-sm-7">
-                  <h5 style="color:black;text-decoration:none;font-size: 15px;overflow:hidden;width:auto;"><a href="property-detail.php">
-                      Kost Singgahsini<br>Tangerang
-                    </a></h5>
-                  <p class="price">Rp1.270.000</p> </div>
-              </div>
-<div class="row">
-                <div class="col-lg-4 col-sm-5"><img src="../images/properties/1.jpg" class="img-responsive img-circle" alt="properties"/></div>
-                <div class="col-lg-8 col-sm-7">
-                  <h5 style="color:black;text-decoration:none;font-size: 15px;overflow:hidden;width:auto;"><a href="property-detail.php">Kost Pindahsana <br>Bogor</a></h5>
-                  <p class="price">Rp1.570.000</p> </div>
-              </div>
-
-
-
+<?php 
+        $viewedKos = $_GET["viewKos"];
+        $queryKos = "SELECT * FROM kos";
+        $getKos = mysqli_query($con,$queryKos);
+          if (mysqli_num_rows($getKos) > 0){
+              while($row = mysqli_fetch_assoc($getKos)){
+                $kostId = $row['idKos'];
+                if($kostId == $viewedKos){
+                  $currNama = $row["namaKos"];
+                  $currHarga = $row["hargaKos"];
+                  $currGambar = $row["gambarKos"];
+                  $currAlamat = $row["alamatKos"];
+                  continue;
+                }
+                ?>
+               <div class="row">
+                  <div class="col-lg-4 col-sm-5"><img src=<?php echo '../images/' . $row['gambarKos'];?> class="img-responsive img-circle" alt="properties"/></div>
+                  <div class="col-lg-8 col-sm-7">
+                    <h5 style="color:black;text-decoration:none;font-size: 15px;overflow:hidden;width:auto;"><a href=<?php echo "detailKos.php?viewKos={$row["idKos"]}";?>>
+                        <?php echo $row['namaKos'];?><br>
+                        <?php echo $row['alamatKos'];?>
+                      </a></h5>
+                    <p class="price"><?php echo $row['hargaKos'];?></p> 
+                  </div>
+                </div>
+              <?php } 
+          }
+     ?>
 </div>
 
 
@@ -324,8 +335,8 @@
   <div class="col-lg-4">
   <div class="col-lg-12  col-sm-6">
 <div class="property-info">
-<p class="price">Kost Singgahsini MHR Tipe C Cikokol Tangerang E8P2GU12</p>
-  <p class="area"><span class="glyphicon glyphicon-map-marker"></span>Tangerang</p>
+<p class="price"><?php echo $currNama?></p>
+  <p class="area"><span class="glyphicon glyphicon-map-marker"></span><?php echo $currAlamat?></p>
   
   <div class="profile">
   <span class="glyphicon glyphicon-user"></span> Dikelola oleh
@@ -341,11 +352,11 @@
       <div class="wrapper-text1">
       <svg xmlns="http://www.w3.org/2000/svg" style="margin-left:7px;color:red;" width="12" height="12" fill="currentColor" class="bi bi-lightning-charge-fill" viewBox="0 0 16 16">
   <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
-</svg><span class="price2">Diskon 154rb</span>
-        <span class="original-price">Rp2.225.000</span><br>
+</svg><span class="price2">Ga ada diskon inflasi!!</span>
+        <span class="original-price"><?php echo "RP".$currHarga?></span><br>
       </div>
       <div class="wrapper-texet">
-        <span class="discounted-price" style="text-decoration:none; color: black;">Rp2.071.000</span> <span class="discounted-price-text">(Bulan pertama)</span>
+        <span class="discounted-price" style="text-decoration:none; color: black;"><?php echo "RP".$currHarga?></span> <span class="discounted-price-text">(Bulan pertama)</span>
       </div>
       <div class="button-wrapper1">
         <button class="button-tanya" onclick="window.location.href='https://wa.me/081818188181'">

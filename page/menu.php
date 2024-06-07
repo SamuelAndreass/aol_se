@@ -34,6 +34,8 @@ include 'config.php'?>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="../css/bootModif.css">
 </head>
 
 
@@ -47,7 +49,7 @@ include 'config.php'?>
           <nav id="navbar">
             <ul>
               <li><a href="faq.php">FAQ</a></li>
-              <li><a href="aboutUS.php">Tentang Kami</a></li>
+              <li><a href="aboutUS.php">Kentang Kami</a></li>
             </ul>
           </nav>
           <div class="cta-hamburger-group"> <!-- Tambahkan kontainer ini -->
@@ -216,22 +218,25 @@ include 'config.php'?>
     <!-- login penyewa -->
     <!-- template header -->  
         <!--Dynamic Content start-->
-      <div class="container-xxl py-5">
+        <div class="container-xxl py-5">
           <div class="tab-content">
               <div id="tab-1" class="tab-pane fade show p-0 active">
                   <div class="row g-4">
                     <?php 
-                        include ('config.php');
                           $queryKos = "SELECT * FROM kos";
+                          if(!empty($_POST["searchTerm"])){
+                            $cariKos = $_POST["searchTerm"];
+                            $queryKos = "SELECT * FROM kos WHERE namaKos='$cariKos'";
+                          }  
                           $getKos = mysqli_query($con,$queryKos);
                             if (mysqli_num_rows($getKos) > 0){
                                 while($row = mysqli_fetch_assoc($getKos)){
                                   $kostId = $row['idKos'];
                                   ?>
                                   <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                                    <div class="property-item rounded overflow-hidden">
+                                    <div class="property-item rounded overflow-hidden" id="box_kos">
                                       <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src=<?php echo '../images/' . $row['gambarKos'];?> alt=""></a>
+                                        <a href=<?php echo "detailKos.php?viewKos={$row["idKos"]}";?>><img class="img-fluid" src=<?php echo '../images/' . $row['gambarKos'];?> alt=""></a>
                                         <!-- <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Rent</div> Ini buat tag di gambar -->
                                         <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3"><?php echo $row['namaKos'];?></div> <!--Sama keknya bagus buat-->
                                       </div>
@@ -255,8 +260,8 @@ include 'config.php'?>
                     </div>
                     </div>
                </div>
-            </div>
-      </div>
+          </div>
+        </div>
         <!-- Dynamic Content end -->  
 <script src="../js/menu.js"></script>
 </body>
