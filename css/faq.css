@@ -244,7 +244,8 @@ body {
   margin: 15% auto; /* 15% dari atas dan ditengah */
   padding: 20px;
   border: 1px solid #888;
-  width: 25%; /* Lebar modal */
+  width: 35%  !important; /* Lebar modal */
+  display: block !important;
 }
 
 .modallogin-content .nama{
@@ -298,16 +299,16 @@ body {
 
 #button-login3{
   display: block;
-  background-color: transparent;
-    color: #4CAF50;
-    padding: 0.5rem 1rem;
-    padding-left: 10px;
-    width: 100%;
-    padding-right: 10px;
+  background-color: #dcdcdc;
+  color:rgb(164, 164, 164);
+  padding: 0.5rem 1rem;
+  padding-left: 10px;
+  width: 100%;
+  padding-right: 10px;
   
-    border-radius: 0.25rem;
-    margin: auto;
-    text-align: center;
+  border-radius: 0.25rem;
+  margin: auto;
+  text-align: center;
 }
 
 .login-w{
@@ -425,6 +426,7 @@ nav ul {
   padding: 0;
   display: flex;
   margin-left: 45.2rem;
+  margin-bottom: 0px !important;
 }
 
 nav ul li {
@@ -459,7 +461,7 @@ nav ul li a:hover{
   padding: 0.5rem 1rem;
   border: 1px solid #4CAF50;
   border-radius: 4px;
-
+  text-decoration: none !important;
 }
 .menu-cta-group {
   display: flex;
@@ -540,10 +542,9 @@ margin-right: auto;
 
 
 footer {
-  background-color: #f2f2f2;
-  padding: 1rem;
-  text-align: center;
-
+  margin-top: 10rem;
+  background-color: white !important;
+  font-size: 13px;
 }
 
 .navbar .navbar-extra a{

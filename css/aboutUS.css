@@ -43,6 +43,7 @@ nav ul {
   padding: 0;
   display: flex;
   margin-left: 45.2rem;
+  margin-bottom: 0px !important;
 }
 
 nav ul li {
@@ -77,7 +78,7 @@ nav ul li a:hover{
   padding: 0.5rem 1rem;
   border: 1px solid #4CAF50;
   border-radius: 4px;
-
+  text-decoration: none !important;
 }
 .menu-cta-group {
   display: flex;
@@ -138,12 +139,7 @@ margin-right: auto;
 
 
 
-footer {
-  background-color: #f2f2f2;
-  padding: 1rem;
-  text-align: center;
 
-}
 
 .navbar .navbar-extra a{
   color: #fff;
@@ -324,7 +320,8 @@ margin-right: auto;
   margin: 15% auto; /* 15% dari atas dan ditengah */
   padding: 20px;
   border: 1px solid #888;
-  width: 25%; /* Lebar modal */
+  width: 35%  !important; /* Lebar modal */
+  display: block !important;
 }
 
 .modallogin-content .nama{
@@ -764,4 +761,10 @@ span{
         opacity: 1;
         transform: translateX(50px);
     }
+}
+
+footer {
+  margin-top: 10rem;
+  background-color: white !important;
+  font-size: 13px;
 }

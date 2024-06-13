@@ -53,8 +53,8 @@
         <div class="menu-cta-group"> <!-- Tambahkan kontainer ini -->
           <nav id="navbar">
             <ul>
-              <li><a href="faq.php">FAQ</a></li>
-              <li><a href="aboutUS.php">Tentang Kami</a></li>
+              <li><a href="faq.php" style=" color:black !important;"  >FAQ</a></li>
+              <li><a href="aboutUS.php" style=" color:black !important;">Tentang Kami</a></li>
             </ul>
           </nav>
           <div class="cta-hamburger-group"> <!-- Tambahkan kontainer ini -->
@@ -142,12 +142,12 @@
                             $('#emw').show();
                         } else {
                             // Redirect to the menu page
-                            // Redirect to the menu page
                             if(response.role == 'admin'){
                               window.location.href = "../page_admin/home.php"
                             }else{
                               window.location.href = "../page_afterlogin/menu2.php";
                             }
+                            
                             
                         }
                     }

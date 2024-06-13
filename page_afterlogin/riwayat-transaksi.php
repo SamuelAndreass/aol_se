@@ -53,7 +53,7 @@
   </head>
   <body>
   <nav class="navbar">
-      <a href="menu.php"><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" class="navbar-logo" alt="logo" /></a>
+      <a href="menu2.php"><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" class="navbar-logo" alt="logo" /></a>
       <ul class="navbar-list">
         <li><a href="faq2.php">FAQ</a></li>
         <li><a href="aboutUS2.php">Tentang Kami</a></li>
@@ -129,17 +129,25 @@
     
         <tr>
         <?php
-        $id = $_SESSION['id'];
-        $q1 = mysqli_query($con, "SELECT * FROM pembayaran p JOIN kos s ON s.idKos = p.idKos WHERE p.idKos= 3;");
-        
-        while( $row = mysqli_fetch_assoc($q1)):
-    ?>
-        <th scope="row"><?php echo $row['transactionID']?></th>
-        <td><?php echo $row['transactionDate']?></td>
-        <td><?php echo $row['total_bayar']?></td>
-        <td><?php echo $row['namaKos']?></td>
-        </tr>
-    <?php endwhile;?>
+          $id = $_SESSION['id'];
+          $q1 = mysqli_query($con, "SELECT * FROM pembayaran p JOIN kos s ON s.idKos = p.idKos WHERE p.idKos= $id;");
+
+          if(mysqli_num_rows($q1) > 0){
+              while($row = mysqli_fetch_assoc($q1)){
+                  ?>
+                  <tr>
+                      <th scope="row"><?php echo $row['transactionID']?></th>
+                      <td><?php echo $row['transactionDate']?></td>
+                      <td><?php echo $row['total_bayar']?></td>
+                      <td><?php echo $row['namaKos']?></td>
+                  </tr>
+                  <?php
+              }
+          }else{
+              echo "<tr><td colspan='4' >No transaction yet</td></tr>";
+          }
+          ?>
+
     </tbody>
     </table>
     </div>

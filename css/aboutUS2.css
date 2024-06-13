@@ -212,3 +212,9 @@ body {
     background: #000;
     color: white;
   }
+
+  footer {
+    margin-top: 10rem;
+    background-color: white !important;
+    font-size: 13px;
+  }

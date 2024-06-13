@@ -261,3 +261,9 @@ body {
   padding-left: 1.5rem;
   background-color: var(--secondary-light);
 }
+
+footer {
+  margin-top: 10rem;
+  background-color: white !important;
+  font-size: 13px;
+}
