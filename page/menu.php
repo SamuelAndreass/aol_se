@@ -49,7 +49,7 @@ include 'config.php'?>
           <nav id="navbar">
             <ul>
               <li><a href="faq.php">FAQ</a></li>
-              <li><a href="aboutUS.php">Kentang Kami</a></li>
+              <li><a href="aboutUS.php">Tentang Kami</a></li>
             </ul>
           </nav>
           <div class="cta-hamburger-group"> <!-- Tambahkan kontainer ini -->
@@ -217,6 +217,25 @@ include 'config.php'?>
       </div>
     <!-- login penyewa -->
     <!-- template header -->  
+
+        <!--Search bar-->
+
+        <div class="container-fluid bg-primary mb-5 wow fadeIn mt-5" data-wow-delay="0.1s" style="padding: 35px;">
+            <div class="container">
+               <form action="menu.php" id="cariKos" method="post">
+               <div class="row g-2">
+                    <div class="col-md-10">
+                    <input type="text" class="form-control py-3" name="searchTerm" placeholder="Cari Kos?">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-dark border-0 w-100 py-3">Search</button>
+                    </div>
+                </div>
+               </form>
+            </div>
+        </div>
+    
+        <!--Search bar-->
         <!--Dynamic Content start-->
         <div class="container-xxl py-5">
           <div class="tab-content">
@@ -260,8 +279,8 @@ include 'config.php'?>
                     </div>
                     </div>
                </div>
-          </div>
-        </div>
+            </div>
+      </div>
         <!-- Dynamic Content end -->  
 <script src="../js/menu.js"></script>
 </body>
