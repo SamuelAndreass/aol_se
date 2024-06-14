@@ -247,7 +247,7 @@ include 'config.php'?>
                           $queryKos = "SELECT * FROM kos";
                           if(!empty($_POST["searchTerm"])){
                             $cariKos = $_POST["searchTerm"];
-                            $queryKos = "SELECT * FROM kos WHERE namaKos='$cariKos'";
+                            $queryKos = "SELECT * FROM kos WHERE alamatKos='$cariKos'";
                           }  
                           $getKos = mysqli_query($con,$queryKos);
                             if (mysqli_num_rows($getKos) > 0){

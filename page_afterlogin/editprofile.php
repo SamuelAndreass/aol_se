@@ -141,10 +141,10 @@
                 $status = $_POST['status'];
                 $pekerjaan = $_POST['pekerjaan'];
                 $email = $_POST['exampleInputEmail1'];
-                $phone = $_POST['inputPhone1'];
+                
                 $id = $_SESSION['id'];
 
-                $edit_query = mysqli_query($con,"UPDATE pencari_kos SET jenisKelamin='$gender',nomorTelpon='$phone',namaUser='$username', emailUser='$email', pekerjaan='$pekerjaan', pendidikanTerakhir='$pendidikan', status='$status'WHERE pencariID=$id ") or die("error occurred");
+                $edit_query = mysqli_query($con,"UPDATE pencari_kos SET jenisKelamin='$gender',namaUser='$username', emailUser='$email', pekerjaan='$pekerjaan', pendidikanTerakhir='$pendidikan', status='$status'WHERE pencariID=$id ") or die("error occurred");
 
                 if($edit_query){
                     echo "<div class='message'>
@@ -206,7 +206,7 @@
                                     <label class="small mb-1" for="inputLocation">Pekerjaan</label>
                                     <select name="pekerjaan" class="form-select" aria-label="Default select example">
                                       <option  <?php if($r_pekerjaan == ''){ echo 'selected'; }?>></option>
-                                      <option value="Mahasiswa"  <?php if($r_pekerjaan == 'Lainnya'){ echo 'selected'; } ?>>Mahasiswa</option>
+                                      <option value="Mahasiswa"  <?php if($r_pekerjaan == 'Mahasiswa'){ echo 'selected'; } ?>>Mahasiswa</option>
                                       <option value="Karyawan"  <?php if($r_pekerjaan == 'Karyawan'){ echo 'selected'; } ?>>Karyawan</option>
                                       <option value="Lainnya"  <?php if($r_pekerjaan == 'Lainnya'){ echo 'selected'; } ?>>Lainnya</option>
                                     </select>
@@ -224,7 +224,7 @@
                                 <!-- Form Group (phone number)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputPhone">Phone number</label>
-                                    <input class="form-control" name="inputPhone1" class="inputPhone1" type="tel" placeholder="Enter your phone number" value="<?php echo $r_phone;?>">
+                                    <input class="form-control" name="inputPhone1" class="inputPhone1" type="tel" placeholder="Enter your phone number" value="<?php echo $r_phone;?>" required pattern="08[0-9]{8,12}" disabled style="background-color:white;">
                                 </div>
                                 <!-- Form Group (birthday)-->
                                 

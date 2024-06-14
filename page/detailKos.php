@@ -235,6 +235,7 @@
 <div class="hot-properties hidden-xs">
 <h4>Lihat kos lainnya</h4>
 <?php 
+        $counter = 0;
         $viewedKos = $_GET["viewKos"];
         $queryKos = "SELECT * FROM kos";
         $getKos = mysqli_query($con,$queryKos);
@@ -247,6 +248,8 @@
                   $currGambar = $row["gambarKos"];
                   $currAlamat = $row["alamatKos"];
                   continue;
+                }if($counter == 3){
+                  break;
                 }
                 ?>
                <div class="row">
@@ -259,7 +262,9 @@
                     <p class="price"><?php echo $row['hargaKos'];?></p> 
                   </div>
                 </div>
-              <?php } 
+              <?php 
+              $counter++;  
+            } 
           }
      ?>
 </div>

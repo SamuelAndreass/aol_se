@@ -130,7 +130,7 @@
         <tr>
         <?php
           $id = $_SESSION['id'];
-          $q1 = mysqli_query($con, "SELECT * FROM pembayaran p JOIN kos s ON s.idKos = p.idKos WHERE p.idKos= $id;");
+          $q1 = mysqli_query($con, "SELECT * FROM pembayaran p JOIN kos s ON s.idKos = p.idKos WHERE p.pencariID= $id;");
 
           if(mysqli_num_rows($q1) > 0){
               while($row = mysqli_fetch_assoc($q1)){

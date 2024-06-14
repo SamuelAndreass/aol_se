@@ -13,6 +13,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Page</title>
     <style>
+        html, body {
+        height: 120%;
+        overflow: auto;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -20,7 +24,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+           
             background-color: #f2f2f2;
         }
         .container {
@@ -102,12 +106,25 @@
         </div>
     </div>
 
+    <?php 
+    $viewedKos = $_GET["idKos"];
+    $queryKos = "SELECT * FROM kos";
+    $getKos = mysqli_query($con,$queryKos);
+    $r1 = mysqli_fetch_assoc($getKos);
+    
+    if($r1){
+        $namakos = $r1['namaKos'];
+        $idkos = $r1['idKos'];
+    }
+    
+    ?>
     <div class="section">
         <h2>Detail Order</h2>
         <img src="../images/properties/1.jpg" alt="kamar kost" class="room-image">
-        <div style="margin-top:2rem;">Kost Coliving Ciputat | Putra</div>
+        <div style="margin-top:2rem;"><?php echo $namakos?></div>
         <div>WiFi · Kasur · K. Mandi Dalam</div>
     </div>
+    
     <div class="section">
     <div>Jumlah Penyewa: <input type="number" id="jumlah-penyewa" name="jumlah-penyewa" value="1" min="1" max="2"></div>
     <div>Durasi Sewa/bulan: <input type="number" id="durasi-sewa" name="durasi-sewa" value="1" min="1" max="12"></div>
@@ -118,7 +135,8 @@
     <input type="hidden" value="2000" name="biaya-sewa3">
 </div>
 
-
+    <input type="hidden" name="idKos" value="<?php echo $idkos?>">
+    <input type="hidden" name="idPencari" value="<?php echo $id?>">
     <div class="confirm-button">
         <button name="submit" value="submit" >CONFIRM</button>
     </div>

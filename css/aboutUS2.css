@@ -32,10 +32,15 @@ body {
   background-color: var(--white);
   padding: 0 8%;
   border-bottom: 1px solid rgb(216, 211, 211);
+  flex-wrap: nowrap !important;
 }
 
 .navbar-logo {
   cursor: pointer;
+}
+
+ul{
+  margin-bottom: 0px !important;
 }
 
 .navbar-list {
@@ -112,6 +117,7 @@ body {
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: max-height 0.5s;
+  padding-left: 0rem;
 }
 
 .profile-dropdown-list hr {
@@ -120,7 +126,10 @@ body {
 
 .profile-dropdown-list.active {
   max-height: 500px;
+  padding-left: 0px;
 }
+
+
 
 .profile-dropdown-list-item {
   padding: 0.5rem 0rem 0.5rem 1rem;
@@ -217,4 +226,4 @@ body {
     margin-top: 10rem;
     background-color: white !important;
     font-size: 13px;
-  }
+  } 

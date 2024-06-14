@@ -73,8 +73,8 @@
     <nav class="navbar-nav2">
         <a href="menu3.php"><img src="../asset/Grey and Black Simple Minimalist Real Estate Logo (1) (1).png" class="navbar-logo" alt="logo" /></a>
         <ul class="navbar-list">
-          <li><a href="faq2.php">FAQ</a></li>
-          <li><a href="aboutUS2.php">Tentang Kami</a></li>
+          <li><a href="faq3.php">FAQ</a></li>
+          <li><a href="aboutUS3.php">Tentang Kami</a></li>
         </ul>
     <div class="profile-dropdown">
         <div onclick="toggle()" class="profile-dropdown-btn">
@@ -94,12 +94,6 @@
             </a>
           </li>
 
-          <li class="profile-dropdown-list-item">
-          <a href="riwayat-transaksi.php">
-              <i class="fa-solid fa-cart-shopping"></i>
-              Riwayat Transaksi
-            </a>
-          </li>
           <li class="profile-dropdown-list-item">
             <a href="../page/menu.php">
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -206,7 +200,7 @@
                                     <label class="small mb-1" for="inputLocation">Pekerjaan</label>
                                     <select name="pekerjaan" class="form-select" aria-label="Default select example">
                                       <option  <?php if($r_pekerjaan == ''){ echo 'selected'; }?>></option>
-                                      <option value="Mahasiswa"  <?php if($r_pekerjaan == 'Lainnya'){ echo 'selected'; } ?>>Mahasiswa</option>
+                                      <option value="Mahasiswa"  <?php if($r_pekerjaan == 'Mahasiswa'){ echo 'selected'; } ?>>Mahasiswa</option>
                                       <option value="Karyawan"  <?php if($r_pekerjaan == 'Karyawan'){ echo 'selected'; } ?>>Karyawan</option>
                                       <option value="Lainnya"  <?php if($r_pekerjaan == 'Lainnya'){ echo 'selected'; } ?>>Lainnya</option>
                                     </select>
@@ -224,7 +218,8 @@
                                 <!-- Form Group (phone number)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputPhone">Phone number</label>
-                                    <input class="form-control" name="inputPhone1" class="inputPhone1" type="tel" placeholder="Enter your phone number" value="<?php echo $r_phone;?>">
+                                    <input class="form-control inputPhone1" name="inputPhone1" type="tel" placeholder="Enter your phone number" value="<?php echo $r_phone;?>" required pattern="08[0-9]{8,12}" disabled style="background-color:white;">
+                                    <span id="validity"></span>
                                 </div>
                                 <!-- Form Group (birthday)-->
                                 
@@ -239,6 +234,17 @@
         </div>
     </div>
 </div>
+
+<script>
+var ph = document.getElementById("validity")
+document.querySelector("form").addEventListener("submit", function(event) {
+  var isValid = ph.chec;
+  if (!isValid) {
+    event.preventDefault(); // mencegah pengiriman formulir
+    ph.innerHTML = "Input harus dimulai dengan 08 dan panjang 10"
+  }
+});</script>
+
 <script src="../js/editprofile.js"></script>
 </body>
 </html>

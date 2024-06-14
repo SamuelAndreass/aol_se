@@ -111,7 +111,7 @@
 
       <div class="container-fluid bg-primary mb-5 wow fadeIn mt-5" data-wow-delay="0.1s" style="padding: 35px;">
             <div class="container">
-               <form action="menu.php" id="cariKos" method="post">
+               <form action="menu2.php" id="cariKos" method="post">
                <div class="row g-2">
                     <div class="col-md-10">
                     <input type="text" class="form-control py-3" name="searchTerm" placeholder="Cari Kos?">
@@ -134,7 +134,7 @@
                           $queryKos = "SELECT * FROM kos";
                           if(!empty($_POST["searchTerm"])){
                             $cariKos = $_POST["searchTerm"];
-                            $queryKos = "SELECT * FROM kos WHERE namaKos='$cariKos'";
+                            $queryKos = "SELECT * FROM kos WHERE alamatKos='$cariKos'";
                           }  
                           $getKos = mysqli_query($con,$queryKos);
                             if (mysqli_num_rows($getKos) > 0){
@@ -158,7 +158,7 @@
                                 <?php } 
                             }else{
                               echo "<script>alert('Kos yang anda cari tidak tersedia')
-                              document.location='../page/menu.php'</script>";
+                              document.location='../page_afterlogin/menu2.php'</script>";
                                                            
                             }
                       ?>
@@ -172,7 +172,7 @@
             </div>
       </div>
 
-      <!-- Footer 2 - Bootstrap Brain Component -->
+<!-- Footer 2 - Bootstrap Brain Component -->
 <footer class="footer">
 
 <!-- Widgets - Bootstrap Brain Component -->
