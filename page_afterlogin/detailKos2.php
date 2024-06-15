@@ -123,7 +123,7 @@
       <?php   
               $counter = 0;
               $viewedKos = $_GET["viewKos"];
-              $queryKos = "SELECT * FROM kos";
+              $queryKos = "SELECT * FROM kos s JOIN pemilik_kos ps ON s.pemilikID = ps.pemilikID";
               $getKos = mysqli_query($con,$queryKos);
                 if (mysqli_num_rows($getKos) > 0){
                     while($row = mysqli_fetch_assoc($getKos)){
@@ -133,6 +133,8 @@
                         $currHarga = $row["hargaKos"];
                         $currGambar = $row["gambarKos"];
                         $currAlamat = $row["alamatKos"];
+                        $pemilik = $row["namaUser"];
+                        $hppemilik = $row["nomorTelpon"];
                         continue;
                       }if($counter == 3){
                         break;
@@ -231,7 +233,7 @@
         
         <div class="profile">
         <span class="glyphicon glyphicon-user"></span> Dikelola oleh
-        <p>Budi Santoso<br>0812343579</p>
+        <p><?php echo $pemilik?><br><?php echo $hppemilik?></p>
         </div>
       </div>
 

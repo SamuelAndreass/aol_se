@@ -237,7 +237,7 @@
 <?php 
         $counter = 0;
         $viewedKos = $_GET["viewKos"];
-        $queryKos = "SELECT * FROM kos";
+        $queryKos = "SELECT * FROM kos s JOIN pemilik_kos ps ON s.pemilikID = ps.pemilikID";
         $getKos = mysqli_query($con,$queryKos);
           if (mysqli_num_rows($getKos) > 0){
               while($row = mysqli_fetch_assoc($getKos)){
@@ -247,6 +247,8 @@
                   $currHarga = $row["hargaKos"];
                   $currGambar = $row["gambarKos"];
                   $currAlamat = $row["alamatKos"];
+                  $pemilik = $row["namaUser"];
+                  $hppemilik = $row["nomorTelpon"];
                   continue;
                 }if($counter == 3){
                   break;
@@ -345,7 +347,7 @@
   
   <div class="profile">
   <span class="glyphicon glyphicon-user"></span> Dikelola oleh
-  <p>Budi Santoso<br>0812343579</p>
+  <p><?php echo $pemilik?><br><?php echo $hppemilik?></p>
   </div>
 </div>
 
@@ -354,17 +356,12 @@
 <div class="col-lg-12 col-sm-6 ">
 <div class="box-pesan">
     <div class="diskon">
-      <div class="wrapper-text1">
-      <svg xmlns="http://www.w3.org/2000/svg" style="margin-left:7px;color:red;" width="12" height="12" fill="currentColor" class="bi bi-lightning-charge-fill" viewBox="0 0 16 16">
-  <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
-</svg><span class="price2">Ga ada diskon inflasi!!</span>
-        <span class="original-price"><?php echo "RP".$currHarga?></span><br>
-      </div>
+     
       <div class="wrapper-texet">
         <span class="discounted-price" style="text-decoration:none; color: black;"><?php echo "RP".$currHarga?></span> <span class="discounted-price-text">(Bulan pertama)</span>
       </div>
       <div class="button-wrapper1">
-        <button class="button-tanya" onclick="window.location.href='https://wa.me/081818188181'">
+        <button class="button-tanya" onclick="window.location.href='https://wa.me/<?php $hp?>'">
         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" style="margin-left:1px;margin-bottom:-1px;text-align: center;margin-right:5px;"   width="12" height="12" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">
             <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
             <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
