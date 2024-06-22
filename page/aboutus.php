@@ -217,7 +217,7 @@ include("config.php");?>
       <div class="text">
         <h2>About <span style="color:#2BD232;">Us</span></h2>
         <h5 style="margin-top:30px;">Penyedia informasi <span style="color:#2BD232;">Kos-Kosan</span> terbaik</h5>
-          <p style="text-align:justify;">Kostify adalah platform terdepan dalam menyediakan informasi kost terbaik. Kami percaya bahwa mencari tempat tinggal yang nyaman dan terjangkau tidak harus menjadi proses yang sulit dan membingungkan. Itulah sebabnya kami berdedikasi untuk membuat proses tersebut menjadi mudah dan menyenangkan. Di Kostify, kami mengumpulkan dan menyediakan informasi kost terlengkap dan terpercaya. Dengan berbagai pilihan kost di berbagai lokasi, kami membantu Anda menemukan tempat tinggal yang paling sesuai dengan kebutuhan dan anggaran Anda.Bergabunglah dengan ribuan pengguna lainnya yang telah menemukan tempat tinggal mereka melalui Kostify. Selamat mencari kost, dan selamat tinggal di rumah baru Anda!  </p>
+          <p style="text-align:justify;">Kostify adalah platform terdepan dalam menyediakan informasi kost-kost terbaik. Kami percaya bahwa mencari tempat tinggal yang nyaman dan terjangkau tidak harus menjadi proses yang sulit dan membingungkan. Itulah sebabnya kami berdedikasi untuk membuat proses tersebut menjadi mudah dan menyenangkan. Di Kostify, kami mengumpulkan dan menyediakan informasi kost terlengkap dan terpercaya. Dengan berbagai pilihan kost di berbagai lokasi, kami membantu Anda menemukan tempat tinggal yang paling sesuai dengan kebutuhan dan anggaran Anda.Bergabunglah dengan ribuan pengguna lainnya yang telah menemukan tempat tinggal mereka melalui Kostify. Selamat mencari kost, dan selamat tinggal di rumah baru Anda!  </p>
         
       </div>
     </div>
